@@ -9,5 +9,5 @@ The original ESConv dataset is licensed under the
 > Copyright © 2021 CoAI Group, Tsinghua University. All rights reserved.  
 > Data and codes are for academic research use only.
 
-Accordingly, this ToMESC dataset inherits the same restriction:  
-**Academic research use only. Commercial use is prohibited.**
+Accordingly, the ToMESC dataset is distributed under the same license and terms:  
+**For academic research use only. Commercial use is strictly prohibited.**

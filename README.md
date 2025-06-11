@@ -38,12 +38,13 @@ To fine-tune a model using the training split of ToMESC:
 
 ## Evaluate the ToMESC quality
 
-To validate annotation quality, four human evaluaters evaluated 100 Dialogue samples using four criteria per category (Belief, Emotion, Intent), each rated on a 1–3 scale, use the below prompt.
+To assess the quality of ToMESC annotations, we conducted a human evaluation on 100 randomly sampled dialogues. Four annotators independently rated each assistant utterance across three mental state categories—**Belief, Emotion, **and** Intent**—using four evaluation criteria per category, each on a 1–3 scale. To measure inter-annotator reliability, we report Gwet’s AC1, which is robust against prevalence and marginal distribution biases. Across all categories and criteria, AC1 values ranged from 0.6 to 0.8, indicating substantial agreement among annotators.
+
+The evaluation was performed using the following command:
 
  `python evaluate_human_sample.py --read_file ToMESC_sample.jsonl`
 
 The detail result as the below:
-
 
 | Mental State | Evaluation Criteria | Score | Gwet’s AC1 |
 |--------------|---------------------|-------|------------|
@@ -51,12 +52,10 @@ The detail result as the below:
 | Belief | (2) Appropriateness to the user’s mental state | 2.8152 | 0.7404 |
 | Belief | (3) Depth beyond surface repetition | 2.8731 | 0.6816 |
 | Belief | (4) Alignment with next-turn utterance | 2.8282 | 0.7521 |
-|--------------|---------------------|-------|------------|
 | Emotion | (1) Appropriateness to emotional tone in the response | 2.8389 | 0.8004 |
 | Emotion | (2) Agreement with affective style and tone | 2.8544 | 0.6570 |
 | Emotion | (3) Validity of mixed emotions | 2.8425 | 0.7643 |
 | Emotion | (4) Coherence between Belief and Emotion | 2.8476 | 0.6910 |
-|--------------|---------------------|-------|------------|
 | Intent | (1) Match with strategy in response | 2.8665 | 0.6627 |
 | Intent | (2) Predictability of utterance | 2.8675 | 0.6995 |
 | Intent | (3) Causal grounding in user state | 2.8716 | 0.6689 |

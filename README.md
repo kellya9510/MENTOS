@@ -38,13 +38,13 @@ To fine-tune a model using the training split of ToMESC:
 
 ## Evaluate the ToMESC quality
 
-To assess the quality of ToMESC annotations, we conducted a human evaluation on 100 randomly sampled dialogues. Four annotators independently rated each assistant utterance across three mental state categories—**Belief, Emotion, **and** Intent**—using four evaluation criteria per category, each on a 1–3 scale. To measure inter-annotator reliability, we report Gwet’s AC1, which is robust against prevalence and marginal distribution biases. Across all categories and criteria, AC1 values ranged from 0.6 to 0.8, indicating substantial agreement among annotators.
+To assess the quality of ToMESC annotations, we conducted a human evaluation on 100 randomly sampled dialogues. Four annotators independently rated each assistant utterance across three mental state categories—**Belief**, **Emotion**, and **Intent**—using four evaluation criteria per category, each on a 1–3 scale. To measure inter-annotator reliability, we report Gwet’s AC1, which is robust against prevalence and marginal distribution biases. Across all categories and criteria, AC1 values ranged from 0.6 to 0.8, indicating substantial agreement among annotators.
 
 The evaluation was performed using the following command:
 
  `python evaluate_human_sample.py --read_file ToMESC_sample.jsonl`
 
-The detail result as the below:
+The detailed results are summarized below:
 
 | Mental State | Evaluation Criteria | Score | Gwet’s AC1 |
 |--------------|---------------------|-------|------------|
@@ -60,6 +60,8 @@ The detail result as the below:
 | Intent | (2) Predictability of utterance | 2.8675 | 0.6995 |
 | Intent | (3) Causal grounding in user state | 2.8716 | 0.6689 |
 | Intent | (4) Coherence between Emotion and Intent | 2.8944 | 0.6815 |
+
+The evaluation criteria in the prompt file were carefully designed to reflect both the practical goals of emotional support and the theoretical foundations of mental state reasoning. Specifically, **Criteria 1 and 4 of Belief, Criterion 2 of Emotion, and Criterion 2 of Intent** are based on prior **ESC research**, ensuring alignment with therapeutic approaches in emotional support. In contrast, **Criteria 2 and 3 of Belief, Criterion 4 of Emotion, and Criteria 1, 3, and 4 of Intent** draw from **Theory of Mind (ToM) and psychological literature** to assess causal coherence in the assistant’s reasoning. **The remaining Emotion criteria** are grounded in **affective science**, including Plutchik’s psychoevolutionary theory of basic emotions and emotion evaluation benchmarks such as EmoBench. This blended design ensures a comprehensive and theoretically grounded evaluation of mental state quality in ToMESC.
 
 
 ## Inference

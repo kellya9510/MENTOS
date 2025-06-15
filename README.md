@@ -26,6 +26,9 @@ Download ToMESC and place it in the `data/` folder before running any scripts.
 
 ## Dataset Construction
 
+<img src='ToMESC.pdf' width='600'>
+
+
 To construct the ToMESC dataset from ESConv, run the following after downloading ESConv:
 
   `python create_mental_state.py --api_key OPENAI_API_KEY --model_type gpt-4o-2024-11-20`

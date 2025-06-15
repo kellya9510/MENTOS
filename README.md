@@ -18,6 +18,8 @@ All derived material in this repository is subject to the same non-commercial re
 
 ## Data
 
+<img src='ToMESC.png' width='1000'>
+
 We introduce **ToMESC**, a Theory of Mind-based dataset that models an assistant’s latent mental states—**Belief**, **Emotion**, **Desire**, and **Intent**—in a structured causal sequence.  
 The dataset is publicly available at [https://zenodo.org/doi/10.5281/zenodo.15624491](https://zenodo.org/doi/10.5281/zenodo.15624491).
 Download ToMESC and place it in the `data/` folder before running any scripts.
@@ -25,9 +27,6 @@ Download ToMESC and place it in the `data/` folder before running any scripts.
 ---
 
 ## Dataset Construction
-
-<img src='ToMESC.png' width='1000'>
-
 
 To construct the ToMESC dataset from ESConv, run the following after downloading ESConv:
 

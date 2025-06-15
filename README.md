@@ -71,7 +71,11 @@ The evaluation criteria in the prompt file were carefully designed to reflect bo
 Run inference for each mental state:
 
   `python inference_mental_state.py --mental_state_type Belief --check_point BestCheckPoint --test_file data/test.jsonl`
+
+  
   `python inference_mental_state.py --mental_state_type Emotion --check_point BestCheckPoint --test_file data/test.json`
+
+  
   `python inference_mental_state.py --mental_state_type Intent --check_point BestCheckPoint --test_file data/test.json`
 
 ## Zero-shot Response Generation

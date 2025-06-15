@@ -50,7 +50,7 @@ The detailed results are summarized below:
 
 | Mental State | Evaluation Criteria | Score | Gwet’s AC1 |
 |--------------|---------------------|-------|------------|
-| Belief | (1) Consistency with dialogue history | 2.8898 | 0.74560 |
+| Belief | (1) Consistency with dialogue history | 2.8898 | 0.7456 |
 | Belief | (2) Appropriateness to the user’s mental state | 2.8152 | 0.7404 |
 | Belief | (3) Depth beyond surface repetition | 2.8731 | 0.6816 |
 | Belief | (4) Alignment with next-turn utterance | 2.8282 | 0.7521 |

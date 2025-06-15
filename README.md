@@ -26,8 +26,7 @@ Download ToMESC and place it in the `data/` folder before running any scripts.
 
 ## Dataset Construction
 
-
-<img src='ToMESC.png', width='1000'>
+<img src='ToMESC.png' width='1000'>
 
 
 To construct the ToMESC dataset from ESConv, run the following after downloading ESConv:

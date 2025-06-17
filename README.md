@@ -15,6 +15,15 @@ Accordingly, the ToMESC dataset is distributed under the same license and terms:
 For more information, see `LICENSE-ESConv`.  
 All derived material in this repository is subject to the same non-commercial restriction.
 
+### Ethical Considerations
+
+ToMESC contains no personally identifiable information (PII).  
+All user utterances are retained as-is from ESConv, and assistant mental state annotations are automatically generated using GPT-4o with prompts grounded in psychological research. 
+A portion of the annotations was manually reviewed to ensure quality and alignment with ethical standards, as detailed in **Evaluate the ToMESC quality**.
+
+Given the sensitive nature of ESC, we emphasize that this dataset is intended strictly for academic research.  
+We discourage any use in real-world clinical, therapeutic, or high-stakes applications without proper human oversight.
+
 
 ## Data
 

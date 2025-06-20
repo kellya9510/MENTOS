@@ -32,7 +32,7 @@ Assistant: I try to spend more time outdoor and keep myself busy. I like to cook
 
 ### Response Without Commonsense
 When prompted to generate a response based solely on the dialogue history—without any commonsense input—**Llama2** produces a generic and emotionally detached reply:
-> *I see. It sounds like you're facing a tough situation. Let's explore some strategies to help you cope with your emotional distress and find ways to stay encouraged. Would you like that?*
+> *I see. It sounds like you're facing a tough situation. Let's explore some strategies to help you cope with your emotional distress and find ways to stay encouraged. Would you like that? *
 While fluent, this response fails to directly address the user's question regarding the assistant’s personal experience, potentially weakening the emotional connection.
 
 ### Model-wise Analysis

@@ -49,35 +49,35 @@ These outputs highlight COMET’s limitation: it focuses only on the last uttera
 2. DIALeCT
 DIALeCT generates more context-aware commonsense:
 * `"Cause": "The listener asked the speaker what he does to stay motivated and confident."`
-* `"SubEv": "The speaker asks the listener if he has any tips for staying motivated."
+* `"SubEv": "The speaker asks the listener if he has any tips for staying motivated."`
 * `"Prere": "Spike is doing his best to earn money online."`
 * `"Motiv": "The speaker is curious to know what the listener is doing to stay motivated."`
-* `"React": "The listener is happy to know that the speaker is encouraging him.“
+* `"React": "The listener is happy to know that the speaker is encouraging him.“`
 
 Although these outputs reflect the dialogue history more accurately, the model fails to capture the user’s request for the assistant’s own experience. The response generated from DIALeCT’s knowledge omits this aspect. While the `SubEv` type implies an experience-related exchange but lacks explicit phrasing, making it difficult for the LLM to infer the correct intent.
 
 
 3. DOCTOR
 DOCTOR produces the following:
-* `"xWant": Person A wants to work on a project and is seeking help from Person B.
-* `"oReact": Person B is willing to help and offers to assist Person A in starting the project.
-* `"xIntent": Person B might want to support Person A and build a stronger relationship, which could potentially lead to more opportunities for collaboration or networking.
+* `"xWant": Person A wants to work on a project and is seeking help from Person B.`
+* `"oReact": Person B is willing to help and offers to assist Person A in starting the project.`
+* `"xIntent": Person B might want to support Person A and build a stronger relationship, which could potentially lead to more opportunities for collaboration or networking.`
 
 These outputs are misaligned with the ESC context. The term “project” is vague and irrelevant, and the assistant’s inferred motivation (`xIntent`) focuses on networking rather than emotional support. As a result, the model fails to provide useful guidance for generating empathetic responses.
 
 
 4. Convosense
 Convosense outputs include:
-* `"cause": "a misunderstanding or miscommunication between the speaker and listener."
-* `"prerequisities": "the speaker and listener have a pre-existing relationship or connection."
-* `"motivation": "by a sense of responsibility to contribute to society."
-* `"subsequent": "the listener might ask the speaker if they have any plans for the weekend."
-* `"desire": "to discuss a potential project with the listener."
-* `"desire_o": "to ask speaker for advice on a personal matter."
-* `"react": "curious about the listener's response."
-* `"react_o": "curious about what speaker is going to say next."
-* `"attribute": "a good communicator."
-* `"constituents": "indicating that the speaker is the one who initiated the conversation."
+* `"cause": "a misunderstanding or miscommunication between the speaker and listener."`
+* `"prerequisities": "the speaker and listener have a pre-existing relationship or connection."`
+* `"motivation": "by a sense of responsibility to contribute to society."`
+* `"subsequent": "the listener might ask the speaker if they have any plans for the weekend."`
+* `"desire": "to discuss a potential project with the listener."`
+* `"desire_o": "to ask speaker for advice on a personal matter."`
+* `"react": "curious about the listener's response."`
+* `"react_o": "curious about what speaker is going to say next."`
+* `"attribute": "a good communicator."`
+* `"constituents": "indicating that the speaker is the one who initiated the conversation."`
 
 Many types (e.g., `cause`, `prerequisities`, and `subsequent`) are either irrelevant (e.g., “weekend plans”) or too generic (e.g., “a sense of responsibility”), making them unsuitable for guiding ESC response generation. This underscores the challenge of relying on heterogeneous, loosely coupled knowledge without filtering for contextual relevance.
 
@@ -85,21 +85,21 @@ Many types (e.g., `cause`, `prerequisities`, and `subsequent`) are either irrele
 
 Sibyl generates:
 
-* `ChatGPT_cause: The supporter recognizes that the help seeker is struggling with low self-confidence due to financial difficulties and is seeking advice on how to stay encouraged and confident.
-* `ChatGPT_emo: Encouragement: The help seeker expresses encouragement and support towards the emotional supporter, acknowledging their efforts and praising their resilience in the face of financial challenges.
-* `ChatGPT_subs: The supporter may share their own strategies for staying encouraged and confident, such as engaging in hobbies or seeking support from friends and family.
-* `ChatGPT_intent: The supporter's intent is to reciprocate the encouragement and support given by the help seeker. By asking about the supporter's methods for staying encouraged or confident, the supporter aims to establish a connection and potentially learn from the help seeker's experiences.
+* `ChatGPT_cause: The supporter recognizes that the help seeker is struggling with low self-confidence due to financial difficulties and is seeking advice on how to stay encouraged and confident.`
+* `ChatGPT_emo: Encouragement: The help seeker expresses encouragement and support towards the emotional supporter, acknowledging their efforts and praising their resilience in the face of financial challenges.`
+* `ChatGPT_subs: The supporter may share their own strategies for staying encouraged and confident, such as engaging in hobbies or seeking support from friends and family.`
+* `ChatGPT_intent: The supporter's intent is to reciprocate the encouragement and support given by the help seeker. By asking about the supporter's methods for staying encouraged or confident, the supporter aims to establish a connection and potentially learn from the help seeker's experiences.`
 
 While some of these are contextually valid (e.g., `ChatGPT_cause`, `ChatGPT_subs`), the lack of **causal connection** across types results in inconsistencies. For example, `ChatGPT_intent` incorrectly frames the assistant as learning from the user, contrary to the dialogue flow. This suggests that independent generation of knowledge types without structural grounding can undermine coherence.
 
 6. ToMESC
 
 ToMESC produces structured BEDI annotations based on the entire dialogue history and the assistant’s intended response:
-* `Belief: The assistant believes the client is seeking encouragement and confidence strategies, feels uncertain about their ability to stay motivated, and values understanding and support in navigating their challenges.
-* `Emotion: 
-    * `[Basic] Sadness (opposite Joy): 1, Disgust (opposite Trust): 0, Anger (opposite Fear): 0, Anticipation (opposite Surprise): 1, Joy (opposite Sadness): 1, Trust (opposite Disgust): 2, Fear (opposite Anger): 0, Surprise (opposite Anticipation): 0
-    * `[Mixed] Hopelessness (sadness + fear): 0, Remorse (sadness + disgust): 0, Disappointment (sadness + surprise): 0, Sentimental (sadness + trust): 2, Jealousy (sadness + anger): 0, Pessimism (sadness + anticipation): 0, Embarrassment (disgust + fear): 0, Pride (anger + joy): 0, Nervousness (anticipation + fear): 0, Delight (joy + surprise): 0, Gratitude/Love/Caring (joy + trust): 2, Hope/Optimism (joy + anticipation): 1, Guilt (joy + fear): 0, Curiosity (surprise + trust): 0
-* `Intent: The assistant’s intent is to empathize with the client by sharing a personal experience, fostering a sense of connection and understanding, and encouraging the client to stay motivated and hopeful despite their challenges.
+* `Belief: The assistant believes the client is seeking encouragement and confidence strategies, feels uncertain about their ability to stay motivated, and values understanding and support in navigating their challenges.`
+* `Emotion: `
+    * `[Basic] Sadness (opposite Joy): 1, Disgust (opposite Trust): 0, Anger (opposite Fear): 0, Anticipation (opposite Surprise): 1, Joy (opposite Sadness): 1, Trust (opposite Disgust): 2, Fear (opposite Anger): 0, Surprise (opposite Anticipation): 0`
+    * `[Mixed] Hopelessness (sadness + fear): 0, Remorse (sadness + disgust): 0, Disappointment (sadness + surprise): 0, Sentimental (sadness + trust): 2, Jealousy (sadness + anger): 0, Pessimism (sadness + anticipation): 0, Embarrassment (disgust + fear): 0, Pride (anger + joy): 0, Nervousness (anticipation + fear): 0, Delight (joy + surprise): 0, Gratitude/Love/Caring (joy + trust): 2, Hope/Optimism (joy + anticipation): 1, Guilt (joy + fear): 0, Curiosity (surprise + trust): 0`
+* `Intent: The assistant’s intent is to empathize with the client by sharing a personal experience, fostering a sense of connection and understanding, and encouraging the client to stay motivated and hopeful despite their challenges.`
 
 
 ToMESC’s strengths lie in:

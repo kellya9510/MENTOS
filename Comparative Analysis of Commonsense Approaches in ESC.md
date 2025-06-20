@@ -122,8 +122,6 @@ ToMESC’s strengths lie in:
 
 Together, these features demonstrate how ToMESC overcomes key limitations of prior approaches by modeling the assistant’s reasoning as a causal sequence (Belief → Emotion → Intent). In Example 1, this enables the assistant to understand the user’s emotional need and respond with a relevant, emotionally grounded personal experience—something all prior models fail to achieve.
 
----
-
 
 ### Quantitative Comparison (G-Eval)
 

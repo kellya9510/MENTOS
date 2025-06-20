@@ -26,7 +26,8 @@ Assistant: I understand how you feel, it's tough not being able to work and earn
 
 User: Thanks. I appreciate that. What do you do to stay encouraged or confident?
 
-Following-up Response]
+**Following-up Response**
+
 Assistant: I try to spend more time outdoor and keep myself busy. I like to cook since it's very relaxing and helps keep my mind concentrated
 
 

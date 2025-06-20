@@ -124,3 +124,5 @@ After post-processing the response outputs, ensure your file (e.g., test_respons
 Then run:
 
   `python g_eval.py --read_file test_response_200.jsonl --model_type gpt-4o-mini-2024-07-18 --api_key OPENAI_API_KEY`
+
+We illustrate the value of ToMESC using representative ESC examples (Example 1 and 2), where a user expresses emotional vulnerability and explicitly seeks experience-based encouragement from the assistant. Detailed comparisons are available [here](https://github.com/kellya9510/ToMESC/blob/main/Comparative%20Analysis%20of%20Commonsense%20Approaches%20in%20ESC.md).

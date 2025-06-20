@@ -2,9 +2,9 @@
 
 ToMESC is a structured commonsense knowledge resource designed to support emotionally and strategically appropriate responses in Emotional Support Conversations (ESC). Unlike prior approaches that rely on loosely connected or static knowledge, ToMESC models the assistant’s latent reasoning process by capturing key Theory of Mind (ToM) mental states—**Belief, Emotion, Desire, and Intent (BEDI)**—in a causally linked sequence. This structure allows LLMs to understand not just what to say, but why it should be said.
 
-We illustrate the value of ToMESC using representative ESC examples (Example 1 and 2), where a user expresses emotional vulnerability and explicitly seeks experience-based encouragement from the assistant.
+We illustrate the value of ToMESC using a representative ESC example, where a user expresses emotional vulnerability and explicitly seeks experience-based encouragement from the assistant.
 
-## Example 1
+## Example 
 To evaluate the effectiveness of commonsense reasoning models in ESC, we examine a representative dialogue in which the user expresses financial stress due to COVID-19, diminished self-confidence, and explicitly seeks experience-based encouragement from the assistant.
 
 ### Dialogue History

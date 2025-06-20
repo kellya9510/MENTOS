@@ -124,17 +124,6 @@ Together, these features demonstrate how ToMESC overcomes key limitations of pri
 
 ---
 
-### Summary of Limitations
-
-| Model          | Limitation                                                        |
-| -------------- | ----------------------------------------------------------------- |
-| **COMET**      | Focuses only on the last utterance; misclassifies emotion.        |
-| **DIALeCT**    | Context-aware but fails to infer the assistant’s own experience.  |
-| **DOCTOR**     | Outputs generic and task-misaligned reasoning.                    |
-| **ConvoSense** | Outputs irrelevant or overly generic knowledge.                   |
-| **Sibyl**      | Lacks inter-type causality, resulting in logical inconsistencies. |
-
----
 
 ### Quantitative Comparison (G-Eval)
 

@@ -47,7 +47,7 @@ COMET generates the following knowledge types based only on the final user utter
 * `"xWant": ["to be successful"]`
 > *I see. It sounds like? you're facing some challenging circumstances. Let's work together to explore these feelings and find ways to help you stay encouraged and confident. Would you like to take a deep breath and continue sharing?*
 
-These outputs highlight COMET’s limitation: it focuses only on the last utterance, misclassifying the user’s complex emotional state as simply “happy” and failing to consider the broader context of emotional vulnerability.
+These outputs highlight COMET’s limitation: it focuses only on the last utterance, misclassifying the user's states. For example, it misinterprets a complex emotional state as simply 'happy,' failing to consider the broader context of emotional vulnerability.
 
 2. DIALeCT
 DIALeCT generates more context-aware commonsense:

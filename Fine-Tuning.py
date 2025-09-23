@@ -55,7 +55,7 @@ def print_trainable_parameters(model):
 def create_instruction(dialog, mental_state_type):
     answer = mental_state_type +": "+dialog["mental_state"][mental_state_type]
     conversation = ""
-    for d_idx, d in enumerate(dialog["conversation"]):
+    for d_idx, d in enumerate(dialog["conversation"][:-1]):
         num= d_idx + 1
         conversation += f"({num}) "+d["speaker"].replace("usr", "Client").replace("seeker", "Client").replace("sys", "Assistant").replace("supporter", "Assistant")+": "+d["text"].strip() + "\n"
 

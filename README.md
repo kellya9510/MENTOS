@@ -1,7 +1,7 @@
-# ToMESC
+# MENTOS
 
 **Official Github Link**
-https://github.com/KUNLP/ToMESC
+https://github.com/KUNLP/MENTOS
 
 
 ## License
@@ -13,7 +13,7 @@ The original ESConv dataset is licensed under the
 > © 2021 CoAI Group, Tsinghua University. All rights reserved.  
 > Data and code are for academic research use only.
 
-Accordingly, the ToMESC dataset is distributed under the same license and terms:  
+Accordingly, the MENTOS dataset is distributed under the same license and terms:  
 **For academic research use only. Commercial use is strictly prohibited.**
 
 For more information, see `LICENSE-ESConv`.  
@@ -21,9 +21,9 @@ All derived material in this repository is subject to the same non-commercial re
 
 ### Ethical Considerations
 
-ToMESC contains no personally identifiable information (PII).  
+MENTOS contains no personally identifiable information (PII).  
 All user utterances are retained as-is from ESConv, and assistant mental state annotations are automatically generated using GPT-4o with prompts grounded in psychological research. 
-A portion of the annotations was manually reviewed to ensure quality and alignment with ethical standards, as detailed in **Evaluate the ToMESC quality**.
+A portion of the annotations was manually reviewed to ensure quality and alignment with ethical standards, as detailed in **Evaluate the MENTOS quality**.
 
 Given the sensitive nature of ESC, we emphasize that this dataset is intended strictly for academic research.  
 We discourage any use in real-world clinical, therapeutic, or high-stakes applications without proper human oversight.
@@ -31,33 +31,33 @@ We discourage any use in real-world clinical, therapeutic, or high-stakes applic
 
 ## Data
 
-<img src='ToMESC.png' width='1000'>
+<img src='MENTOS.png' width='1000'>
 
-We introduce **ToMESC**, a Theory of Mind-based dataset that models an assistant’s latent mental states—**Belief**, **Emotion**, **Desire**, and **Intent**—in a structured causal sequence.  
+We introduce **MENTOS**, a Theory of Mind-based dataset that models an assistant’s latent mental states—**Belief**, **Emotion**, **Desire**, and **Intent**—in a structured causal sequence.  
 The dataset is publicly available at [https://zenodo.org/doi/10.5281/zenodo.15624491](https://zenodo.org/doi/10.5281/zenodo.15624491).
-Download ToMESC and place it in the `data/` folder before running any scripts.
+Download MENTOS and place it in the `data/` folder before running any scripts.
 
 ---
 
 ## Dataset Construction
 
-To construct the ToMESC dataset from ESConv, run the following after downloading ESConv:
+To construct the MENTOS dataset from ESConv, run the following after downloading ESConv:
 
   `python create_mental_state.py --api_key OPENAI_API_KEY --model_type gpt-4o-2024-11-20`
 
-## Fine-tuning (SFT) using ToMESC
+## Fine-tuning (SFT) using MENTOS
 
-To fine-tune a model using the training split of ToMESC:
+To fine-tune a model using the training split of MENTOS:
 
   `python Fine-Tuning.py --mental_state_type All --data_dir data --batch_size 4 -num_epochs 5 --learning_rate 3e-5 --lora_r 8 --lora_alpha 16 --lora_dropout 0.05`
 
-## Evaluate the ToMESC quality
+## Evaluate the MENTOS quality
 
-To assess the quality of ToMESC annotations, we conducted a human evaluation on 100 randomly sampled dialogues. Four annotators independently rated each assistant utterance across three mental state categories—**Belief**, **Emotion**, and **Intent**—using four evaluation criteria per category, each on a 1–3 scale. To measure inter-annotator reliability, we report Gwet’s AC1, which is robust against prevalence and marginal distribution biases. Across all categories and criteria, AC1 values ranged from 0.6 to 0.8, indicating substantial agreement among annotators.
+To assess the quality of MENTOS annotations, we conducted a human evaluation on 100 randomly sampled dialogues. Four annotators independently rated each assistant utterance across three mental state categories—**Belief**, **Emotion**, and **Intent**—using four evaluation criteria per category, each on a 1–3 scale. To measure inter-annotator reliability, we report Gwet’s AC1, which is robust against prevalence and marginal distribution biases. Across all categories and criteria, AC1 values ranged from 0.6 to 0.8, indicating substantial agreement among annotators.
 
 The evaluation was performed using the following command:
 
- `python evaluate_human_sample.py --read_file ToMESC_sample.jsonl`
+ `python evaluate_human_sample.py --read_file MENTOS_sample.jsonl`
 
 The detailed results are summarized below:
 
@@ -76,7 +76,7 @@ The detailed results are summarized below:
 | Intent | (3) Causal grounding in user state | 2.8716 | 0.6689 |
 | Intent | (4) Coherence between Emotion and Intent | 2.8944 | 0.6815 |
 
-The evaluation criteria in the prompt file were carefully designed to reflect both the practical goals of emotional support and the theoretical foundations of mental state reasoning. Specifically, **Criteria 1 and 4 of Belief, Criterion 2 of Emotion, and Criterion 2 of Intent** are based on prior **ESC research**, ensuring alignment with therapeutic approaches in emotional support. In contrast, **Criteria 2 and 3 of Belief, Criterion 4 of Emotion, and Criteria 1, 3, and 4 of Intent** draw from **Theory of Mind (ToM) and psychological literature** to assess causal coherence in the assistant’s reasoning. **The remaining Emotion criteria** are grounded in **affective science**, including Plutchik’s psychoevolutionary theory of basic emotions and emotion evaluation benchmarks such as EmoBench. This blended design ensures a comprehensive and theoretically grounded evaluation of mental state quality in ToMESC.
+The evaluation criteria in the prompt file were carefully designed to reflect both the practical goals of emotional support and the theoretical foundations of mental state reasoning. Specifically, **Criteria 1 and 4 of Belief, Criterion 2 of Emotion, and Criterion 2 of Intent** are based on prior **ESC research**, ensuring alignment with therapeutic approaches in emotional support. In contrast, **Criteria 2 and 3 of Belief, Criterion 4 of Emotion, and Criteria 1, 3, and 4 of Intent** draw from **Theory of Mind (ToM) and psychological literature** to assess causal coherence in the assistant’s reasoning. **The remaining Emotion criteria** are grounded in **affective science**, including Plutchik’s psychoevolutionary theory of basic emotions and emotion evaluation benchmarks such as EmoBench. This blended design ensures a comprehensive and theoretically grounded evaluation of mental state quality in MENTOS.
 
 
 ## Inference
@@ -129,4 +129,4 @@ Then run:
 
   `python g_eval.py --read_file test_response_200.jsonl --model_type gpt-4o-mini-2024-07-18 --api_key OPENAI_API_KEY`
 
-We illustrate the value of ToMESC using representative ESC examples (Example 1 and 2), where a user expresses emotional vulnerability and explicitly seeks experience-based encouragement from the assistant. Detailed comparisons are available [here](https://github.com/kellya9510/ToMESC/blob/main/Comparative%20Analysis%20of%20Commonsense%20Approaches%20in%20ESC.md).
+We illustrate the value of MENTOS using representative ESC examples (Example 1 and 2), where a user expresses emotional vulnerability and explicitly seeks experience-based encouragement from the assistant. Detailed comparisons are available [here](https://github.com/kellya9510/MENTOS/blob/main/Comparative%20Analysis%20of%20Commonsense%20Approaches%20in%20ESC.md).

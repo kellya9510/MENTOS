@@ -1,9 +1,5 @@
 # MENTOS
 
-**Official Github Link**
-https://github.com/KUNLP/MENTOS
-
-
 ## License
 
 This dataset is derived from the [ESConv dataset](https://github.com/thu-coai/Emotional-Support-Conversation).  

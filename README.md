@@ -31,7 +31,7 @@ We discourage any use in real-world clinical, therapeutic, or high-stakes applic
 
 ## Data
 
-<img src='MENTOS.png' width='1000'>
+<img src='DATA CONSTRUCTION.png' width='1000'>
 
 We introduce **MENTOS**, a Theory of Mind-based dataset that models an assistant’s latent mental states—**Belief**, **Emotion**, **Desire**, and **Intent**—in a structured causal sequence.  
 The dataset is publicly available at [https://zenodo.org/doi/10.5281/zenodo.15624491](https://zenodo.org/doi/10.5281/zenodo.15624491).

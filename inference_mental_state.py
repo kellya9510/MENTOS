@@ -52,7 +52,7 @@ def create_instruction(dialog, mental_state_type):
 
     
     mental_state_question_dict = {
-        "Belief": "What does the assistant believe about the client's mental states, as revealed in the client's last utterance?",
+        "Belief": "What does the assistant believe about the client's situation and emotional state based on the client's last utterance?",
         "Emotion": "What emotional reaction might the assistant have after the client's last utterance, based on the assistant's belief and how the conversation has unfolded? Rate each basic emotion from 0 (not present) to 3 (intense). Then rate mixed emotions only if both contributing basic emotions are rated 2 or higher and are explicitly reflected in the assistant's wording.",
         "Intent": "What is the assistant's intent following the client's last utterance, based on the assistant's belief, emotional reaction, and desire?"
     }

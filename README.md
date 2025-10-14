@@ -51,7 +51,8 @@ Among these, the Constraint Component for Emotion employs basic and mixed emotio
 <p align="center">
   <img src="Emotion_Category.png" width="800">
 </p>
-<p align="center"><em>Image source:  [EmoBench: Evaluating the Emotional Intelligence of Large Language Models](https://aclanthology.org/2024.acl-long.326.pdf) (Sabour et al., ACL 2024)</em></p>
+<p align="center"><em>Image source: <a href="https://aclanthology.org/2024.acl-long.326.pdf">EmoBench: Evaluating the Emotional Intelligence of Large Language Models</a> (Sabour et al., ACL 2024)</em></p>
+
 
 The dataset is built based on a turn-level annotation schema.
 Each dialogue contains multiple turns, and for every turn (t), an independent data sample is created.

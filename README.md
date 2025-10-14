@@ -16,13 +16,14 @@ For more information, see `LICENSE-ESConv`.
 All derived material in this repository is subject to the same non-commercial restriction.
 
 ## MENTOS Dataset
+---
+
 
 <img src='DATA CONSTRUCTION.png' width='1000'>
 
 We introduce **MENTOS**, a dataset that provides turn-level annotations of the assistant’s mental states (**Belief**, **Emotion**, **Desire**, and **Intent**), organized in a causal structure reflecting psychological principles.
 This design integrates psychological principles of Theory of Mind (ToM) into commonsense reasoning.
 A commonsense reasoning model trained on MENTOS predicts these mental states as intermediate reasoning signals that guide response generation, and these mental states were then injected into LLM-based response generators in a zero-shot setting.
----
 
 ### Dataset Construction
 

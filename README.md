@@ -63,7 +63,7 @@ For each target mental state, the following components are used as GPT-4o input:
 
 An example MENTOS dataset sample is shown below:
 
-`
+```
 {
   "data_idx": "example_id",
   "mental_state": {
@@ -78,7 +78,7 @@ An example MENTOS dataset sample is shown below:
     {"text": "Yeah I'm in the same boat. It's tough having to be cooped up.", "speaker": "supporter", "strategy": "Affirmation and Reassurance", "all_strategy": ["Affirmation and Reassurance"]}
   ]
 }
-`
+```
 
 
 ### Evaluate the MENTOS quality

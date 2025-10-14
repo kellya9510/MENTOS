@@ -78,18 +78,67 @@ The detailed results are summarized below:
 
 All assistant responses were generated using <img src="https://latex.codecogs.com/svg.latex?\text{Generator}_{\text{Llama2}}" />. Bold indicates the best performance.
 
-| Model                                                                               |   **B-4**  |  **MET**  | **Dist-3** |   **C_W**  |   **C_S**  | **Greedy** ||  **B-4**  |   **MET**  | **Dist-3** |   **C_W**  |   **C_S**  | **Greedy** |
-| :---------------------------------------------------------------------------------- | :--------: | :-------: | :--------: | :--------: | :--------: | :--------: || :-------: | :--------: | :--------: | :--------: | :--------: | :--------: |
-|                                                                                     | **ESConv** |           |            |            |            |            || **ExTES** |            |            |            |            |            |
-| Llama2                                                                              |    0.404   |   8.378   |   30.086   |   88.584   |   27.377   |   69.874   ||   2.052   |   10.476   |   16.232   |   93.856   |   48.396   |   74.564   |
-| +COMET                                                                              |    0.513   |   8.432   |   37.777   |   88.653   |   28.390   |   69.946   ||   2.368   |   10.951   |   19.799   |   94.206   |   49.751   |   75.353   |
-| +DIALeCT                                                                            |  **0.571** |   8.643   |   46.210   |   88.888   |   30.516   |   70.459   ||   2.353   |   10.863   |   22.845   |   94.006   |   50.247   |   75.375   |
-| +DOCTOR                                                                             |    0.525   |   8.329   |   41.253   |   88.174   |   27.330   |   69.909   ||   2.216   |   10.524   |   23.107   |   93.618   |   46.909   |   75.010   |
-| +Sibyl (Llama3.1)                                                                   |    0.448   |   8.165   |   48.380   |   87.832   |   29.189   |   69.124   ||   2.419   |   11.002   | **23.201** |   93.977   |   51.089   |   75.091   |
-| +Sibyl (Llama2)                                                                     |    0.568   |   8.333   | **50.374** |   88.103   |   29.979   |   69.430   ||   2.322   |   11.016   |   22.950   |   94.053   |   50.246   |   75.059   |
-| +<img src="https://latex.codecogs.com/svg.latex?\text{MENTOS}_{\text{Llama3.1}}" /> |    0.489   | **9.167** |   46.461   |   89.264   | **31.053** |   70.763   ||   2.875   |   12.208   |   22.599   |   94.664   |   52.418   |   76.107   |
-| +<img src="https://latex.codecogs.com/svg.latex?\text{MENTOS}_{\text{Llama2}}" />   |    0.511   |   9.138   |   46.338   | **89.362** |   30.758   | **70.906** ||   2.955   |   12.225   |   21.789   | **94.761** | **53.014** |   76.254   |
-| +<img src="https://latex.codecogs.com/svg.latex?\text{MENTOS}_{\text{Qwen3}}" />    |    0.432   |   8.991   |   45.665   |   89.223   |   30.792   |   70.686   || **2.958** | **12.231** |   21.739   |   94.684   |   52.846   | **76.259** |
+<table>
+  <thead>
+    <tr>
+      <th rowspan="2">Model</th>
+      <th colspan="6">ESConv</th>
+      <th colspan="6">ExTES</th>
+    </tr>
+    <tr>
+      <th>B-4</th><th>MET</th><th>Dist-3</th><th>C_W</th><th>C_S</th><th>Greedy</th>
+      <th>B-4</th><th>MET</th><th>Dist-3</th><th>C_W</th><th>C_S</th><th>Greedy</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Llama2</td>
+      <td>0.404</td><td>8.378</td><td>30.086</td><td>88.584</td><td>27.377</td><td>69.874</td>
+      <td>2.052</td><td>10.476</td><td>16.232</td><td>93.856</td><td>48.396</td><td>74.564</td>
+    </tr>
+    <tr>
+      <td>+COMET</td>
+      <td>0.513</td><td>8.432</td><td>37.777</td><td>88.653</td><td>28.390</td><td>69.946</td>
+      <td>2.368</td><td>10.951</td><td>19.799</td><td>94.206</td><td>49.751</td><td>75.353</td>
+    </tr>
+    <tr>
+      <td>+DIALeCT</td>
+      <td><b>0.571</b></td><td>8.643</td><td>46.210</td><td>88.888</td><td>30.516</td><td>70.459</td>
+      <td>2.353</td><td>10.863</td><td>22.845</td><td>94.006</td><td>50.247</td><td>75.375</td>
+    </tr>
+    <tr>
+      <td>+DOCTOR</td>
+      <td>0.525</td><td>8.329</td><td>41.253</td><td>88.174</td><td>27.330</td><td>69.909</td>
+      <td>2.216</td><td>10.524</td><td>23.107</td><td>93.618</td><td>46.909</td><td>75.010</td>
+    </tr>
+    <tr>
+      <td>+Sibyl (Llama3.1)</td>
+      <td>0.448</td><td>8.165</td><td>48.380</td><td>87.832</td><td>29.189</td><td>69.124</td>
+      <td>2.419</td><td>11.002</td><td><b>23.201</b></td><td>93.977</td><td>51.089</td><td>75.091</td>
+    </tr>
+    <tr>
+      <td>+Sibyl (Llama2)</td>
+      <td>0.568</td><td>8.333</td><td><b>50.374</b></td><td>88.103</td><td>29.979</td><td>69.430</td>
+      <td>2.322</td><td>11.016</td><td>22.950</td><td>94.053</td><td>50.246</td><td>75.059</td>
+    </tr>
+    <tr>
+      <td>+<img src="https://latex.codecogs.com/svg.latex?\text{MENTOS}_{\text{Llama3.1}}" /></td>
+      <td>0.489</td><td><b>9.167</b></td><td>46.461</td><td>89.264</td><td><b>31.053</b></td><td>70.763</td>
+      <td>2.875</td><td>12.208</td><td>22.599</td><td>94.664</td><td>52.418</td><td>76.107</td>
+    </tr>
+    <tr>
+      <td>+<img src="https://latex.codecogs.com/svg.latex?\text{MENTOS}_{\text{Llama2}}" /></td>
+      <td>0.511</td><td>9.138</td><td>46.338</td><td><b>89.362</b></td><td>30.758</td><td><b>70.906</b></td>
+      <td>2.955</td><td>12.225</td><td>21.789</td><td><b>94.761</b></td><td><b>53.014</b></td><td>76.254</td>
+    </tr>
+    <tr>
+      <td>+<img src="https://latex.codecogs.com/svg.latex?\text{MENTOS}_{\text{Qwen3}}" /></td>
+      <td>0.432</td><td>8.991</td><td>45.665</td><td>89.223</td><td>30.792</td><td>70.686</td>
+      <td><b>2.958</b></td><td><b>12.231</b></td><td>21.739</td><td>94.684</td><td>52.846</td><td><b>76.259</b></td>
+    </tr>
+  </tbody>
+</table>
+
 
 
 All assistant responses were generated using <img src="https://latex.codecogs.com/svg.latex?\text{Generator}_{\text{Qwen3}}" />. Bold indicates the best performance.

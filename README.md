@@ -351,13 +351,22 @@ All assistant responses were generated using <img src="https://latex.codecogs.co
 ## Case Study
 We demonstrate the effectiveness of the MENTOS-trained model through a representative ESC example, where the client expresses financial stress caused by COVID-19, a loss of self-confidence, and explicitly seeks experience-based encouragement from the assistant.
 
-<p align="center"> <img src='Case_Study.png' width='1400'> </p>
+<p align="center"> <img src='Case_Study.png' width='1000'> </p>
 
-In the w/o Knowledge setting, only the dialogue history is provided to <img src="https://latex.codecogs.com/svg.latex?\text{Generator}_{\text{Llama2}}" />, without any commonsense knowledge. The response fails to directly address the client’s request about the assistant’s personal experiences.
+In the w/o Knowledge setting, only the dialogue history is provided to <img src="https://latex.codecogs.com/svg.latex?\text{Generator}_{\text{Llama2}}" />, without any external commonsense knowledge.
+As a result, the generated response fails to directly address the client’s request regarding the assistant’s personal experience.
 
-When using COMET, which relies only on the last client utterance, misclassifying the user's states (“Thanks. I appreciate that”). It misinterprets a complex emotional state as simply 'happy,' failing to consider the broader context of emotional vulnerability.
+When using COMET, which relies solely on the last client utterance, the model misclassifies the user’s state (“Thanks. I appreciate that”) and simplifies the complex emotion as merely happy, overlooking the broader context of emotional vulnerability.
 
-When using DOCTOR, the term "project" in the generated response is vague, and emotional cues about the client were omitted during multi-hop reasoning.
-The inferred commonsense knowledge primarily focuses on the client (Spike) seeking help, while the xIntent type emphasizes networking rather than emotional support.
-As a result, the <img src="https://latex.codecogs.com/svg.latex?\text{Generator}_{\text{Llama2}}" /> using DOCTOR fails to provide meaningful guidance for generating empathetic and problem-solving–oriented responses.
+When using DOCTOR, the inferred knowledge contains vague elements such as the term “project”, and emotional cues from the client are omitted during multi-hop reasoning.
+The generated commonsense primarily focuses on the client (Spike) seeking help, while the xIntent type emphasizes networking rather than emotional support.
+Consequently, <img src="https://latex.codecogs.com/svg.latex?\text{Generator}_{\text{Llama2}}" /> with DOCTOR fails to provide meaningful guidance for generating empathetic or problem-solving–oriented responses.
 
+When using DIALeCT, the inferred knowledge (e.g., SubEv, Prere, Motiv) more accurately reflects the dialogue history.
+However, in the final turn, the Cause type is reversed: instead of recognizing that the client asks the assistant for strategies to regain self-confidence, it incorrectly describes the assistant as the one asking.
+This role inversion causes inconsistency between Cause and other knowledge types.
+
+When using <img src="https://latex.codecogs.com/svg.latex?\text{Sibyl}_{\text{Llama3.1}}" />, the predicted Intent type is inconsistent with the inferred Cause, often expressing the opposite meaning. This appears to stem from Sibyl’s independent generation process, where each knowledge type is modeled separately without causal dependency.
+
+In contrast, the proposed <img src="https://latex.codecogs.com/svg.latex?\text{MENTOS}_{\text{Llama3.1}}" /> extracts the assistant’s mental states across multi-turn dialogues in a causally coherent manner. Each mental state (Belief, Emotion, Intent) is generated with sequential dependency, as reflected in the color-coded links in the table, resulting in more consistent state interpretations and contextually appropriate responses.
+Furthermore, G-Eval results support this finding, showing that responses generated with <img src="https://latex.codecogs.com/svg.latex?\text{MENTOS}_{\text{Llama3.1}}" /> are more supportive than those from other models.

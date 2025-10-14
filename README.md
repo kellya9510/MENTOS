@@ -27,7 +27,7 @@ A commonsense reasoning model trained on MENTOS predicts these mental states as 
 
 To construct the MENTOS dataset from ESConv, run the following command after downloading the ESConv dataset:
 
-  `python create_mental_state.py --api_key OPENAI_API_KEY --model_type GPT_MODEL_TYPE`
+  `python create_mental_state.py --api_key OPENAI_API_KEY --model_type MODEL_TYPE`
 
 **Mental State Extraction Prompt Components**
 
@@ -54,13 +54,13 @@ The dataset is built based on a turn-level annotation schema.
 Each dialogue contains multiple turns, and for every turn (t), an independent data sample is created.
 Each data sample consists of:
 
-(1) Dialogue history up to the t-th client utterance.
+(1) Dialogue history up to the t-th client utterance
 
-(2) The assistant’s response at the t-th turn.
+(2) The assistant’s response at the t-th turn
 
-(3) The corresponding three mental state annotations (Belief, Emotion, and Intent).
+(3) The corresponding three mental state annotations (Belief, Emotion, and Intent)
 
-Thus, a single dialogue yields as many data samples as there are turns.
+Thus, a single dialogue yields as many data samples as there are turns
 
 An example **MENTOS dataset sample** for a 2-turn dialogue is shown below:
 
@@ -81,7 +81,6 @@ An example **MENTOS dataset sample** for a 2-turn dialogue is shown below:
 }
 ```
 
-
 ### Evaluate the MENTOS quality
 
 To assess the quality of MENTOS annotations, we conducted a human evaluation on 100 randomly sampled dialogues. Four annotators independently rated each assistant utterance across three mental state types (**Belief**, **Emotion**, and **Intent**) using four evaluation criteria per category, each on a 1–3 scale. To measure inter-annotator reliability, we report Gwet’s AC1, which is robust against prevalence and marginal distribution biases. Across all categories and criteria, AC1 values ranged from 0.6 to 0.8, indicating substantial agreement among annotators.
@@ -97,6 +96,19 @@ The evaluation was performed using the following command:
 To fine-tune a model using the training split of MENTOS:
 
   `python Fine-Tuning.py --mental_state_type All --data_dir data --batch_size 4 -num_epochs 5 --learning_rate 3e-5 --lora_r 8 --lora_alpha 16 --lora_dropout 0.05`
+
+For each target mental state, the MENTOS-trained model is fine-tuned using the following components within the prompt:
+
+(1) Dialogue history
+
+(2) Assistant Mental State Component
+
+(3) Question Component
+
+(4) Constraint Component
+
+<p align="center"> <img src='SFT_prompt.png' width='1000'> </p>
+
 
 ### Inference
 
@@ -116,14 +128,21 @@ To generate responses using a zero-shot LLM:
 
   `python generate_response.py --model_name meta-llama/Llama-2-7b-chat-hf --test_file Meta-Llama-3.1-8B-Instruct/model/Full_FT/All/output_BestCheckPoint.jsonl --output_file output/output_All_response_BestCheckPoint.jsonl --new_max_token 100`
 
+For each target mental state, the MENTOS-trained model is fine-tuned using the following components within the prompt:
+
+(1) Dialogue history
+
+(2) Commonsense Knowledge
+
+<p align="center"> <img src='Response_Generation_prompt.png' width='1000'> </p>
+
 ## Evaluation
 
 Evaluate Generated Responses
 
   `python evaluate_metrics.py --data_dir Meta-Llama-3.1-8B-Instruct/model/Full_FT/All --check_point BestCheckPoint --is_response true`
 
-
-The detailed results are summarized below:
+The detailed autometic evaluation results are summarized below:
 
 All assistant responses were generated using <img src="https://latex.codecogs.com/svg.latex?\text{Generator}_{\text{Llama2}}" />. Bold indicates the best performance.
 
@@ -315,10 +334,11 @@ After post-processing the response outputs, ensure your file (e.g., test_respons
     "conversation": [ ... ]
   }`
 
-
-
 Then run:
 
-  `python g_eval.py --read_file test_response_200.jsonl --model_type gpt-4o-mini-2024-07-18 --api_key OPENAI_API_KEY`
+  `python g_eval.py --read_file test_response_200.jsonl --api_key OPENAI_API_KEY  --model_type MODEL_TYPE`
+
+Using the following prompt:
+<p align="center"> <img src='G-Eval.png' width='1000'> </p>
 
 We illustrate the value of MENTOS using representative ESC examples (Example 1 and 2), where a user expresses emotional vulnerability and explicitly seeks experience-based encouragement from the assistant. Detailed comparisons are available [here](https://github.com/kellya9510/MENTOS/blob/main/Comparative%20Analysis%20of%20Commonsense%20Approaches%20in%20ESC.md).

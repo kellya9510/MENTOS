@@ -25,9 +25,9 @@ A commonsense reasoning model trained on MENTOS predicts these mental states as 
 
 ### Dataset Construction
 
-To construct the MENTOS dataset from ESConv, run the following after downloading ESConv:
+To construct the MENTOS dataset from ESConv, run the following command after downloading the ESConv dataset:
 
-  `python create_mental_state.py --api_key OPENAI_API_KEY --model_type gpt-4o-2024-11-20`
+  `python create_mental_state.py --api_key OPENAI_API_KEY --model_type GPT_MODEL_TYPE`
 
 **Mental State Extraction Prompt Components**
 
@@ -43,9 +43,12 @@ For each target mental state, the MENTOS dataset is constructed using the follow
 
 (5) Constraint Component
 
-These components together guide the model in generating structured annotations for each mental state (Belief, Emotion, Intent).
-
 <p align="center"> <img src='Mental_State_Extraction_Prompt_GPT4o.png' width='1000'> </p>
+
+These components together guide the model in generating structured annotations for each mental state (Belief, Emotion, Intent).
+Among these, the Constraint Component for Emotion employs basic and mixed emotion categories grounded in psychological research ([Plutchik, 1982](https://is.muni.cz/el/1421/jaro2011/PSA_033/um/plutchik.pdf); [Sabour et al., 2024](https://aclanthology.org/2024.acl-long.326.pdf))
+
+<p align="center"> <img src='Emotion_Category.png' width='1000'> </p>
 
 The dataset is built based on a turn-level annotation schema.
 Each dialogue contains multiple turns, and for every turn (t), an independent data sample is created.
@@ -59,7 +62,7 @@ Each data sample consists of:
 
 Thus, a single dialogue yields as many data samples as there are turns.
 
-An example MENTOS dataset sample is shown below:
+An example **MENTOS dataset sample** is shown below:
 
 ```
 {

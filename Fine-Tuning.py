@@ -138,30 +138,18 @@ def training(cli_args):
     output_dir = f"./{model_name}"
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
-        print(f"디렉토리를 생성했습니다: {output_dir}")
-    else:
-        print(f"디렉토리가 이미 존재합니다: {output_dir}")
     
     output_dir = f"./{model_name}/model"
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
-        print(f"디렉토리를 생성했습니다: {output_dir}")
-    else:
-        print(f"디렉토리가 이미 존재합니다: {output_dir}")
 
     output_dir = f"./{model_name}/model/{args.output_file}"
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
-        print(f"디렉토리를 생성했습니다: {output_dir}")
-    else:
-        print(f"디렉토리가 이미 존재합니다: {output_dir}")
 
     output_dir = f"./{model_name}/model/{args.output_file}/{mental_state_type}"
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
-        print(f"디렉토리를 생성했습니다: {output_dir}")
-    else:
-        print(f"디렉토리가 이미 존재합니다: {output_dir}")
 
     tokenizer = AutoTokenizer.from_pretrained(
         args.model_name, 
@@ -360,21 +348,17 @@ def training(cli_args):
             
     for batch in trainer.get_train_dataloader():
         labels = batch["labels"]            # shape [bs, seq_len]
-        valid_counts = (labels != -100).sum(dim=1)  # 배치별 유효 토큰 개수
+        valid_counts = (labels != -100).sum(dim=1)  
         if (valid_counts == 0).any():
-            print("⚠️ 유효 라벨이 0개인 샘플 발견")
-            print("라벨 분포:", valid_counts)
             break
 
     def detect_nan(module, inp, out):
-        # out이 Tensor면 튜플로, 튜플이면 그대로 사용
         outputs = out if isinstance(out, tuple) else (out,)
         for o in outputs:
-            # o가 Tensor인지도 확인 (혹시 None일 수도 있으니)
             if isinstance(o, torch.Tensor):
                 if torch.isnan(o).any() or torch.isinf(o).any():
                     print(f"⚠️ NaN/Inf detected in {module.__class__.__name__}")
-                    return  # 한 번 감지되면 충분하면 종료
+                    return  
 
     for m in trainer.model.modules():
         m.register_forward_hook(detect_nan)

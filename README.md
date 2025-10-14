@@ -62,6 +62,7 @@ For each target mental state, the following components are used as GPT-4o input:
 (5) Constraint Component
 
 An example MENTOS dataset sample is shown below:
+
 `
 {
   "data_idx": "example_id",

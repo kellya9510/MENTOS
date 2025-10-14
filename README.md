@@ -140,9 +140,8 @@ For each target mental state, the response generator produces responses using th
 
 <p align="center"> <img src='Response_Generation_prompt.png' width='1000'> </p>
 
-## Evaluation
 
-### Evaluate Generated Responses
+## Evaluate Generated Responses
 
   `python evaluate_metrics.py --data_dir Meta-Llama-3.1-8B-Instruct/model/Full_FT/All --check_point BestCheckPoint --is_response true`
 
@@ -211,7 +210,7 @@ All assistant responses were generated using <img src="https://latex.codecogs.co
   </tbody>
 </table>
 
-### Autometic Metric Results
+## Autometic Metric Results
 
 All assistant responses were generated using <img src="https://latex.codecogs.com/svg.latex?\text{Generator}_{\text{Qwen3}}" />. Bold indicates the best performance.
 <table>
@@ -320,7 +319,7 @@ All assistant responses were generated using <img src="https://latex.codecogs.co
 </table>
 
 
-### G-Eval
+## G-Eval
 After post-processing the response outputs, ensure your file (e.g., test_response_200.jsonl) follows this format:
 
   ```
@@ -345,13 +344,15 @@ Then run:
 Using the following prompt:
 <p align="center"> <img src='G-Eval.png' width='1000'> </p>
 
-### Case Study
+## Case Study
 We demonstrate the effectiveness of the MENTOS-trained model through a representative ESC example, where the client expresses financial stress caused by COVID-19, a loss of self-confidence, and explicitly seeks experience-based encouragement from the assistant.
 
 <p align="center"> <img src='Case_Study.png' width='1400'> </p>
 
 In the w/o Knowledge setting, only the dialogue history is provided to <img src="https://latex.codecogs.com/svg.latex?\text{Generator}_{\text{Llama2}}" />, without any commonsense knowledge. The response fails to directly address the client’s request about the assistant’s personal experiences.
+
 When using COMET, which relies only on the last client utterance, misclassifying the user's states (“Thanks. I appreciate that”). It misinterprets a complex emotional state as simply 'happy,' failing to consider the broader context of emotional vulnerability.
+
 When using DOCTOR, the term "project" in the generated response is vague, and emotional cues about the client were omitted during multi-hop reasoning.
 The inferred commonsense knowledge primarily focuses on the client (Spike) seeking help, while the xIntent type emphasizes networking rather than emotional support.
 As a result, the <img src="https://latex.codecogs.com/svg.latex?\text{Generator}_{\text{Llama2}}" /> using DOCTOR fails to provide meaningful guidance for generating empathetic and problem-solving–oriented responses.

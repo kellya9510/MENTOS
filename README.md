@@ -30,6 +30,56 @@ To construct the MENTOS dataset from ESConv, run the following after downloading
 
   `python create_mental_state.py --api_key OPENAI_API_KEY --model_type gpt-4o-2024-11-20`
 
+**Prompt Design**
+
+The MENTOS dataset is constructed using the following prompt:
+<img src='Mental_State_Extraction_Prompt_GPT4o.png' width='1000'>
+
+The dataset is built based on a turn-level annotation schema.
+Each dialogue contains multiple turns, and for every turn (t), an independent data sample is created.
+Each data sample consists of:
+
+(1) Dialogue history up to the t-th client utterance.
+
+(2) The assistant’s response at the t-th turn.
+
+(3) The corresponding three mental state annotations (Belief, Emotion, and Intent).
+
+Thus, a single dialogue yields as many data samples as there are turns.
+
+**Annotation Input Structure**
+
+For each target mental state, the following components are used as GPT-4o input:
+
+(1) Dialogue history,
+
+(2) Assistant response, including the supportive strategy description (strategy_info in `create_mental_state.py`).
+
+(3) Assistant Mental State Component
+
+(4) Question Component (mental_state_question_dict)
+
+(5) Constraint Component
+
+An example MENTOS dataset sample is shown below:
+`
+{
+  "data_idx": "example_id",
+  "mental_state": {
+    "Belief": "The assistant believes the client is feeling frustrated and struggling with the limitations of staying indoors, despite being an introvert, and is seeking understanding or validation for their emotional experience.",
+    "Emotion": "[Basic] Sadness (opposite Joy): 2, Disgust (opposite Trust): 0, Anger (opposite Fear): 0, Anticipation (opposite Surprise): 0, Joy (opposite Sadness): 0, Trust (opposite Disgust): 2, Fear (opposite Anger): 0, Surprise (opposite Anticipation): 0\n[Mixed] Hopelessness (sadness + fear): 0, Remorse (sadness + disgust): 0, Disappointment (sadness + surprise): 0, Sentimental (sadness + trust): 2, Jealousy (sadness + anger): 0, Pessimism (sadness + anticipation): 0, Embarrassment (disgust + fear): 0, Pride (anger + joy): 0, Nervousness (anticipation + fear): 0, Delight (joy + surprise): 0, Gratitude/Love/Caring (joy + trust): 0, Hope/Optimism (joy + anticipation): 0, Guilt (joy + fear): 0, Curiosity (surprise + trust): 0",
+    "Intent": "The assistant’s intent is to validate the client’s feelings of frustration, foster a sense of shared experience, and provide emotional reassurance by expressing empathy and understanding of the challenges of being confined indoors."
+  },
+  "conversation": [
+    {"text": "Hello. How are you?", "speaker": "seeker"},
+    {"text": "I'm doing well. How are you?", "speaker": "supporter", "strategy": "Reflection of feelings", "all_strategy": ["Reflection of feelings"]},
+    {"text": "I am having a difficult time not being able to go out. I am an introvert and didn't think COVID-19 would be a problem but I find myself being short and impatient.", "speaker": "seeker"},
+    {"text": "Yeah I'm in the same boat. It's tough having to be cooped up.", "speaker": "supporter", "strategy": "Affirmation and Reassurance", "all_strategy": ["Affirmation and Reassurance"]}
+  ]
+}
+`
+
+
 ### Evaluate the MENTOS quality
 
 To assess the quality of MENTOS annotations, we conducted a human evaluation on 100 randomly sampled dialogues. Four annotators independently rated each assistant utterance across three mental state categories—**Belief**, **Emotion**, and **Intent**—using four evaluation criteria per category, each on a 1–3 scale. To measure inter-annotator reliability, we report Gwet’s AC1, which is robust against prevalence and marginal distribution biases. Across all categories and criteria, AC1 values ranged from 0.6 to 0.8, indicating substantial agreement among annotators.

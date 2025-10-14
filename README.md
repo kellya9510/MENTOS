@@ -22,9 +22,6 @@ All derived material in this repository is subject to the same non-commercial re
 We introduce **MENTOS**, a dataset that provides turn-level annotations of the assistant’s mental states (**Belief**, **Emotion**, **Desire**, and **Intent**), organized in a causal structure reflecting psychological principles.
 This design integrates psychological principles of Theory of Mind (ToM) into commonsense reasoning.
 A commonsense reasoning model trained on MENTOS predicts these mental states as intermediate reasoning signals that guide response generation, and these mental states were then injected into LLM-based response generators in a zero-shot setting.
-The dataset is publicly available at [https://zenodo.org/doi/10.5281/zenodo.15624491](https://zenodo.org/doi/10.5281/zenodo.15624491).
-Download MENTOS and place it in the `data/` folder before running any scripts.
-
 ---
 
 ### Dataset Construction

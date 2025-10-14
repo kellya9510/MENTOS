@@ -48,7 +48,7 @@ For each target mental state, the MENTOS dataset is constructed using the follow
 These components together guide the model in generating structured annotations for each mental state (Belief, Emotion, Intent).
 Among these, the Constraint Component for Emotion employs basic and mixed emotion categories, along with an intensity scale (0: None, 1: Low, 2: Medium, 3: High), grounded in psychological research ([Plutchik, 1982](https://is.muni.cz/el/1421/jaro2011/PSA_033/um/plutchik.pdf); [Sabour et al., 2024](https://aclanthology.org/2024.acl-long.326.pdf))
 
-<p align="center"> <img src='Emotion_Category.png' width='1000'> </p>
+<p align="center"> <img src='Emotion_Category.png' width='800'> </p>
 
 The dataset is built based on a turn-level annotation schema.
 Each dialogue contains multiple turns, and for every turn (t), an independent data sample is created.

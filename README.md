@@ -196,18 +196,57 @@ All assistant responses were generated using <img src="https://latex.codecogs.co
 
 
 All assistant responses were generated using <img src="https://latex.codecogs.com/svg.latex?\text{Generator}_{\text{Llama3.2}}" />. Bold indicates the best performance.
-| Model                                                                               |   **B-4**  |  **MET**  | **Dist-3** |   **C_W**  |   **C_S**  | **Greedy** |  **B-4**  |   **MET**  | **Dist-3** |   **C_W**  |   **C_S**  | **Greedy** |
-| :---------------------------------------------------------------------------------- | :--------: | :-------: | :--------: | :--------: | :--------: | :--------: | :-------: | :--------: | :--------: | :--------: | :--------: | :--------: |
-|                                                                                     | **ESConv** |           |            |            |            |            | **ExTES** |            |            |            |            |            |
-| Llama3.2                                                                            |    0.355   |   8.287   |   40.651   |   88.789   |   27.349   |   70.068   |   1.581   |   10.330   |   23.470   |   94.148   |   45.219   |   74.256   |
-| +COMET                                                                              |    0.368   |   8.235   |   41.565   |   88.736   |   27.310   |   70.289   |   1.800   |   10.608   |   23.089   |   94.148   |   45.147   |   74.707   |
-| +DIALeCT                                                                            |    0.431   |   8.602   |   41.406   |   89.507   |   28.493   | **71.222** |   1.845   |   10.644   |   22.569   |   94.452   |   45.981   |   75.321   |
-| +DOCTOR                                                                             |    0.430   |   8.402   |   40.353   |   89.185   |   27.634   |   70.618   |   1.908   |   10.593   |   22.426   |   94.264   |   45.209   |   74.927   |
-| +Sibyl (Llama3.1)                                                                   |    0.430   |   8.571   |   42.916   |   89.352   |   28.991   |   71.077   |   2.136   |   11.306   |   24.556   |   93.780   |   47.081   |   74.328   |
-| +Sibyl (Llama2)                                                                     |    0.454   |   8.606   |   42.547   |   89.463   |   28.873   |   71.187   |   1.851   |   11.287   | **24.676** |   93.804   |   46.973   |   74.234   |
-| +<img src="https://latex.codecogs.com/svg.latex?\text{MENTOS}_{\text{Llama3.1}}" /> |  **0.457** |   8.576   |   44.011   |   89.563   | **29.614** |   70.985   |   2.414   |   11.346   |   22.711   |   94.616   |   47.619   |   75.526   |
-| +<img src="https://latex.codecogs.com/svg.latex?\text{MENTOS}_{\text{Llama2}}" />   |    0.366   | **8.609** | **44.711** | **89.658** |   29.332   |   71.167   | **2.418** | **11.384** |   22.110   | **94.623** | **47.874** | **75.528** |
-| +<img src="https://latex.codecogs.com/svg.latex?\text{MENTOS}_{\text{Qwen3}}" />    |    0.352   |   8.587   |   44.885   |   89.360   |   28.966   |   70.895   |   2.160   |   11.254   |   22.917   |   94.555   |   47.707   |   75.364   |
+<table>
+  <thead>
+    <tr>
+      <th rowspan="2">Model</th>
+      <th colspan="6">ESConv</th>
+      <th colspan="6">ExTES</th>
+    </tr>
+    <tr>
+      <th>B-4</th><th>MET</th><th>Dist-3</th><th>C_W</th><th>C_S</th><th>Greedy</th>
+      <th>B-4</th><th>MET</th><th>Dist-3</th><th>C_W</th><th>C_S</th><th>Greedy</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Llama3.2</td>
+      <td>    0.355  </td><td>   8.287  </td><td>   40.651  </td><td>   88.789  </td><td>   27.349  </td><td>   70.068  </td><td>   1.581  </td><td>   10.330  </td><td>   23.470  </td><td>   94.148  </td><td>   45.219  </td><td>   74.256  </td>
+    <tr>
+      <td>+COMET</td>
+     <td>    0.368  </td><td>   8.235  </td><td>   41.565  </td><td>   88.736  </td><td>   27.310  </td><td>   70.289  </td><td>   1.800  </td><td>   10.608  </td><td>   23.089  </td><td>   94.148  </td><td>   45.147  </td><td>   74.707  </td>
+    </tr>
+    <tr>
+      <td>+DIALeCT</td>
+      <td> <td>    0.431  </td><td>   8.602  </td><td>   41.406  </td><td>   89.507  </td><td>   28.493  </td><td><b>71.222</b></td><td>   1.845  </td><td>   10.644  </td><td>   22.569  </td><td>   94.452  </td><td>   45.981  </td><td>   75.321  </td>
+    </tr>
+    <tr>
+      <td>+DOCTOR</td>
+      <td>    0.430  </td><td>   8.402  </td><td>   40.353  </td><td>   89.185  </td><td>   27.634  </td><td>   70.618  </td><td>   1.908  </td><td>   10.593  </td><td>   22.426  </td><td>   94.264  </td><td>   45.209  </td><td>   74.927  </td>
+    </tr>
+    <tr>
+      <td>+<img src="https://latex.codecogs.com/svg.latex?\text{Sibyl}_{\text{Llama3.1}}" /></td>
+      <td>    0.394  </td><td>   7.843  </td><td>   52.845  </td><td>   87.422  </td><td>   27.717  </td><td>   68.269  </td><td>   2.136  </td><td>   11.306  </td><td>   24.556  </td><td>   93.780  </td><td>   47.081  </td><td>   74.328  </td>
+    </tr>
+    <tr>
+      <td>+<img src="https://latex.codecogs.com/svg.latex?\text{Sibyl}_{\text{Llama2}}" /></td>
+      <td>    0.454  </td><td>   8.606  </td><td>   42.547  </td><td>   89.463  </td><td>   28.873  </td><td>   71.187  </td><td>   1.851  </td><td>   11.287  </td><td><b>24.676</b></td><td>   93.804  </td><td>   46.973  </td><td>   74.234  </td>
+    </tr>
+    <tr>
+      <td>+<img src="https://latex.codecogs.com/svg.latex?\text{MENTOS}_{\text{Llama3.1}}" /></td>
+      <td> <b>0.457</b></td><td>   8.576  </td><td>   44.011  </td><td>   89.563  </td><td><b>29.614</b></td><td>   70.985  </td><td>   2.414  </td><td>   11.346  </td><td>   22.711  </td><td>   94.616  </td><td>   47.619  </td><td>   75.526  </td>
+    </tr>
+    <tr>
+      <td>+<img src="https://latex.codecogs.com/svg.latex?\text{MENTOS}_{\text{Llama2}}" /></td>
+      <td>    0.366  </td><td><b>8.609</b></td><td><b>44.711</b></td><td><b>89.658</b></td><td>   29.332  </td><td>   71.167  </td><td><b>2.418</b></td><td><b>11.384</b></td><td>   22.110  </td><td><b>94.623</b></td><td><b>47.874</b></td><td><b>75.528</b></td>
+    </tr>
+    <tr>
+      <td>+<img src="https://latex.codecogs.com/svg.latex?\text{MENTOS}_{\text{Qwen3}}" /></td>
+      <td>    0.352  </td><td>   8.587  </td><td>   44.885  </td><td>   89.360  </td><td>   28.966  </td><td>   70.895  </td><td>   2.160  </td><td>   11.254  </td><td>   22.917  </td><td>   94.555  </td><td>   47.707  </td><td>   75.364  </td>
+    </tr>
+  </tbody>
+</table>
+
 
 
 

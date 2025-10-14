@@ -62,7 +62,7 @@ Each data sample consists of:
 
 Thus, a single dialogue yields as many data samples as there are turns.
 
-An example **MENTOS dataset sample** is shown below:
+An example **MENTOS dataset sample** for a 2-turn dialogue is shown below:
 
 ```
 {
@@ -75,8 +75,8 @@ An example **MENTOS dataset sample** is shown below:
   "conversation": [
     {"text": "Hello. How are you?", "speaker": "seeker"},
     {"text": "I'm doing well. How are you?", "speaker": "supporter", "strategy": "Reflection of feelings", "all_strategy": ["Reflection of feelings"]},
-    {"text": "I am having a difficult time not being able to go out. I am an introvert and didn't think COVID-19 would be a problem but I find myself being short and impatient.", "speaker": "seeker"},
-    {"text": "Yeah I'm in the same boat. It's tough having to be cooped up.", "speaker": "supporter", "strategy": "Affirmation and Reassurance", "all_strategy": ["Affirmation and Reassurance"]}
+    {"text": "I am having a difficult time not being able to go out. I am an introvert and didn't think COVID-19 would be a problem but I find myself being short and impatient.", "speaker": "seeker"}, 
+    {"text": "Yeah I'm in the same boat. It's tough having to be cooped up.", "speaker": "supporter", "strategy": "Affirmation and Reassurance", "all_strategy": ["Affirmation and Reassurance"]} # The assistant’s response at the 2nd turn.
   ]
 }
 ```

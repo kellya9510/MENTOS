@@ -165,7 +165,7 @@ All assistant responses were generated using <img src="https://latex.codecogs.co
     </tr>
     <tr>
       <td>+DIALeCT</td>
-      <td> <b>0.482**</td><td>   7.546  </td><td> **55.222**</td><td>   87.110  </td><td>   27.167  </td><td>   68.241  </td><td>   1.457  </td><td>   10.179  </td><td> **25.451**</td><td>   92.658  </td><td>   43.010  </td><td>   73.627  </td><td>
+      <td> <b>0.482</b></td><td>   7.546  </td><td><b>55.222</b></td><td>   87.110  </td><td>   27.167  </td><td>   68.241  </td><td>   1.457  </td><td>   10.179  </td><td><b>25.451</b></td><td>   92.658  </td><td>   43.010  </td><td>   73.627  </td><td>
     </tr>
     <tr>
       <td>+DOCTOR</td>
@@ -181,18 +181,19 @@ All assistant responses were generated using <img src="https://latex.codecogs.co
     </tr>
     <tr>
       <td>+<img src="https://latex.codecogs.com/svg.latex?\text{MENTOS}_{\text{Llama3.1}}" /></td>
-      <td>    0.233  </td><td>   9.037  </td><td>   46.391  </td><td> **89.585**</td><td>   29.516  </td><td> **70.827**</td><td>   2.052  </td><td>   13.141  </td><td>   21.582  </td><td>   94.835  </td><td> **50.221**</td><td> **76.110**</td><td>
+      <td>    0.233  </td><td>   9.037  </td><td>   46.391  </td><td><b>89.585</b></td><td>   29.516  </td><td><b>70.827</b></td><td>   2.052  </td><td>   13.141  </td><td>   21.582  </td><td>   94.835  </td><td><b>50.221</b></td><td><b>76.110</b></td><td>
     </tr>
     <tr>
       <td>+<img src="https://latex.codecogs.com/svg.latex?\text{MENTOS}_{\text{Llama2}}" /></td>
-      <td>    0.239  </td><td> **9.059**</td><td>   47.346  </td><td>   89.394  </td><td> **29.681**</td><td>   70.664  </td><td>   2.192  </td><td> **13.195**</td><td>   21.134  </td><td> **95.045**</td><td>   50.154  </td><td>   76.101  </td><td>
+      <td>    0.239  </td><td><b>9.059</b></td><td>   47.346  </td><td>   89.394  </td><td><b>29.681</b></td><td>   70.664  </td><td>   2.192  </td><td><b>13.195</b></td><td>   21.134  </td><td><b>95.045</b></td><td>   50.154  </td><td>   76.101  </td><td>
     </tr>
     <tr>
       <td>+<img src="https://latex.codecogs.com/svg.latex?\text{MENTOS}_{\text{Qwen3}}" /></td>
-      <td>    0.247  </td><td>   8.984  </td><td>   47.774  </td><td>   89.390  </td><td>   29.564  </td><td>   70.624  </td><td> **2.249**</td><td>   12.918  </td><td>   21.988  </td><td>   94.685  </td><td>   49.442  </td><td>   75.765  </td><td>
+      <td>    0.247  </td><td>   8.984  </td><td>   47.774  </td><td>   89.390  </td><td>   29.564  </td><td>   70.624  </td><td><b>2.249</b></td><td>   12.918  </td><td>   21.988  </td><td>   94.685  </td><td>   49.442  </td><td>   75.765  </td><td>
     </tr>
   </tbody>
 </table>
+
 
 All assistant responses were generated using <img src="https://latex.codecogs.com/svg.latex?\text{Generator}_{\text{Llama3.2}}" />. Bold indicates the best performance.
 | Model                                                                               |   **B-4**  |  **MET**  | **Dist-3** |   **C_W**  |   **C_S**  | **Greedy** |  **B-4**  |   **MET**  | **Dist-3** |   **C_W**  |   **C_S**  | **Greedy** |

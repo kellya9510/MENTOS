@@ -128,7 +128,7 @@ To generate responses using a zero-shot LLM:
 
   `python generate_response.py --model_name meta-llama/Llama-2-7b-chat-hf --test_file Meta-Llama-3.1-8B-Instruct/model/Full_FT/All/output_BestCheckPoint.jsonl --output_file output/output_All_response_BestCheckPoint.jsonl --new_max_token 100`
 
-For each target mental state, the MENTOS-trained model is fine-tuned using the following components within the prompt:
+For each target mental state, the response generator produces responses using the following components within the prompt:
 
 (1) Dialogue history
 

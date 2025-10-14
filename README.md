@@ -143,9 +143,13 @@ For each target mental state, the response generator produces responses using th
 
 ## Evaluate Generated Responses
 
+### (1) Automatic Evaluation Metrics
+
 To use automatic evaluation metrics,
 
   `python evaluate_metrics.py --data_dir Meta-Llama-3.1-8B-Instruct/model/Full_FT/All --check_point BestCheckPoint --is_response true`
+
+### (2) G-Eval
 
 After post-processing the response outputs, ensure your file (e.g., test_response_200.jsonl) follows this format:
 
@@ -164,11 +168,11 @@ After post-processing the response outputs, ensure your file (e.g., test_respons
   }
 ```
 
-Then run to assess G-Eval,:
+Then run:
 
   `python g_eval.py --read_file test_response_200.jsonl --api_key OPENAI_API_KEY  --model_type MODEL_TYPE`
 
-Using the following G-Eval prompt:
+Using the following prompt:
 <p align="center"> <img src='G-Eval.png' width='1000'> </p>
 
 

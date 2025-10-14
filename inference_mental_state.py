@@ -163,7 +163,7 @@ def test(args):
                 )
             else:
                 messages = make_prompt(example,args.mental_state_type,is_example=False)
-            # system+user only (모델 입력 부분)
+            # system+user only 
             prompt_str = tokenizer.apply_chat_template(
                 messages,
                 tokenize=False,

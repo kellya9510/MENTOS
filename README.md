@@ -350,4 +350,9 @@ We demonstrate the effectiveness of the MENTOS-trained model through a represent
 
 <p align="center"> <img src='Case_Study.png' width='1400'> </p>
 
+In the w/o Knowledge setting, only the dialogue history is provided to <img src="https://latex.codecogs.com/svg.latex?\text{Generator}_{\text{Llama2}}" />, without any commonsense knowledge. The response fails to directly address the client’s request about the assistant’s personal experiences.
+When using COMET, which relies only on the last client utterance, misclassifying the user's states (“Thanks. I appreciate that”). It misinterprets a complex emotional state as simply 'happy,' failing to consider the broader context of emotional vulnerability.
+When using DOCTOR, the term "project" in the generated response is vague, and emotional cues about the client were omitted during multi-hop reasoning.
+The inferred commonsense knowledge primarily focuses on the client (Spike) seeking help, while the xIntent type emphasizes networking rather than emotional support.
+As a result, the <img src="https://latex.codecogs.com/svg.latex?\text{Generator}_{\text{Llama2}}" /> using DOCTOR fails to provide meaningful guidance for generating empathetic and problem-solving–oriented responses.
 

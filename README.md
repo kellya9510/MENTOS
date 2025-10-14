@@ -142,7 +142,7 @@ For each target mental state, the response generator produces responses using th
 
 ## Evaluation
 
-Evaluate Generated Responses
+### Evaluate Generated Responses
 
   `python evaluate_metrics.py --data_dir Meta-Llama-3.1-8B-Instruct/model/Full_FT/All --check_point BestCheckPoint --is_response true`
 
@@ -211,7 +211,7 @@ All assistant responses were generated using <img src="https://latex.codecogs.co
   </tbody>
 </table>
 
-
+### Autometic Metric Results
 
 All assistant responses were generated using <img src="https://latex.codecogs.com/svg.latex?\text{Generator}_{\text{Qwen3}}" />. Bold indicates the best performance.
 <table>
@@ -320,7 +320,7 @@ All assistant responses were generated using <img src="https://latex.codecogs.co
 </table>
 
 
-Evaluate with G-Eval
+### G-Eval
 After post-processing the response outputs, ensure your file (e.g., test_response_200.jsonl) follows this format:
 
   ```
@@ -345,4 +345,9 @@ Then run:
 Using the following prompt:
 <p align="center"> <img src='G-Eval.png' width='1000'> </p>
 
-We illustrate the value of MENTOS using representative ESC examples (Example 1 and 2), where a user expresses emotional vulnerability and explicitly seeks experience-based encouragement from the assistant. Detailed comparisons are available [here](https://github.com/kellya9510/MENTOS/blob/main/Comparative%20Analysis%20of%20Commonsense%20Approaches%20in%20ESC.md).
+### Case Study
+We demonstrate the effectiveness of the MENTOS-trained model through a representative ESC example, where the client expresses financial stress caused by COVID-19, a loss of self-confidence, and explicitly seeks experience-based encouragement from the assistant.
+
+<p align="center"> <img src='Case_Study.png' width='1000'> </p>
+
+

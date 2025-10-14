@@ -112,12 +112,12 @@ All assistant responses were generated using <img src="https://latex.codecogs.co
       <td>2.216</td><td>10.524</td><td>23.107</td><td>93.618</td><td>46.909</td><td>75.010</td>
     </tr>
     <tr>
-      <td>+<img src="https://latex.codecogs.com/svg.latex?\text{Sibyl}_{\text{Llama3.1}}</td>
+      <td>+<img src="https://latex.codecogs.com/svg.latex?\text{Sibyl}_{\text{Llama3.1}}" /></td>
       <td>0.448</td><td>8.165</td><td>48.380</td><td>87.832</td><td>29.189</td><td>69.124</td>
       <td>2.419</td><td>11.002</td><td><b>23.201</b></td><td>93.977</td><td>51.089</td><td>75.091</td>
     </tr>
     <tr>
-      <td>+<img src="https://latex.codecogs.com/svg.latex?\text{Sibyl}_{\text{Llama2}}</td>
+      <td>+<img src="https://latex.codecogs.com/svg.latex?\text{Sibyl}_{\text{Llama2}}" /></td>
       <td>0.568</td><td>8.333</td><td><b>50.374</b></td><td>88.103</td><td>29.979</td><td>69.430</td>
       <td>2.322</td><td>11.016</td><td>22.950</td><td>94.053</td><td>50.246</td><td>75.059</td>
     </tr>
@@ -172,11 +172,11 @@ All assistant responses were generated using <img src="https://latex.codecogs.co
       <td>    0.326  </td><td>   7.162  </td><td>   50.544  </td><td>   85.967  </td><td>   23.315  </td><td>   66.928  </td><td>   1.559  </td><td>   10.144  </td><td>   23.748  </td><td>   92.897  </td><td>   42.552  </td><td>   73.402  </td><td>
     </tr>
     <tr>
-      <td>+<img src="https://latex.codecogs.com/svg.latex?\text{Sibyl}_{\text{Llama3.1}}</td>
+      <td>+<img src="https://latex.codecogs.com/svg.latex?\text{Sibyl}_{\text{Llama3.1}}" /></td>
       <td>    0.394  </td><td>   7.843  </td><td>   52.845  </td><td>   87.422  </td><td>   27.717  </td><td>   68.269  </td><td>   2.136  </td><td>   11.306  </td><td>   24.556  </td><td>   93.780  </td><td>   47.081  </td><td>   74.328  </td><td>
     </tr>
     <tr>
-      <td>+<img src="https://latex.codecogs.com/svg.latex?\text{Sibyl}_{\text{Llama2}}</td>
+      <td>+<img src="https://latex.codecogs.com/svg.latex?\text{Sibyl}_{\text{Llama2}}" /></td>
       <td>    0.302  </td><td>   7.906  </td><td>   52.044  </td><td>   87.447  </td><td>   27.653  </td><td>   68.338  </td><td>   1.851  </td><td>   11.287  </td><td>   24.676  </td><td>   93.804  </td><td>   46.973  </td><td>   74.234  </td><td>
     </tr>
     <tr>

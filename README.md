@@ -145,7 +145,7 @@ For each target mental state, the response generator produces responses using th
 
   `python evaluate_metrics.py --data_dir Meta-Llama-3.1-8B-Instruct/model/Full_FT/All --check_point BestCheckPoint --is_response true`
 
-The detailed autometic evaluation results are summarized below:
+## Results of Automatic Evaluation Metrics
 
 All assistant responses were generated using <img src="https://latex.codecogs.com/svg.latex?\text{Generator}_{\text{Llama2}}" />. Bold indicates the best performance.
 
@@ -209,8 +209,6 @@ All assistant responses were generated using <img src="https://latex.codecogs.co
     </tr>
   </tbody>
 </table>
-
-## Autometic Metric Results
 
 All assistant responses were generated using <img src="https://latex.codecogs.com/svg.latex?\text{Generator}_{\text{Qwen3}}" />. Bold indicates the best performance.
 <table>
@@ -319,7 +317,7 @@ All assistant responses were generated using <img src="https://latex.codecogs.co
 </table>
 
 
-## G-Eval
+## G-Eval Results
 After post-processing the response outputs, ensure your file (e.g., test_response_200.jsonl) follows this format:
 
   ```

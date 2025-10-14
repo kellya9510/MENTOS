@@ -218,7 +218,7 @@ All assistant responses were generated using <img src="https://latex.codecogs.co
     </tr>
     <tr>
       <td>+DIALeCT</td>
-      <td> <td>    0.431  </td><td>   8.602  </td><td>   41.406  </td><td>   89.507  </td><td>   28.493  </td><td><b>71.222</b></td><td>   1.845  </td><td>   10.644  </td><td>   22.569  </td><td>   94.452  </td><td>   45.981  </td><td>   75.321  </td>
+      <td>    0.431  </td><td>   8.602  </td><td>   41.406  </td><td>   89.507  </td><td>   28.493  </td><td><b>71.222</b></td><td>   1.845  </td><td>   10.644  </td><td>   22.569  </td><td>   94.452  </td><td>   45.981  </td><td>   75.321  </td>
     </tr>
     <tr>
       <td>+DOCTOR</td>

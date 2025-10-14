@@ -22,7 +22,7 @@ def construct_messages_for_assistant(dialog, input_mental_states="", mental_stat
     }
     
     mental_state_question_dict = {
-        "Belief": "What does the assistant believe about the client's situation and emotional state to generate the most recent response?",
+        "Belief": "What does the assistant believe about the client’s situation or internal state to generate the most recent response?",
         "Emotion": "What is the assistant’s emotional reaction in their most recent response, based on the client’s emotional state and how the conversation has unfolded? Rate each basic emotion from 0 (not present) to 3 (intense). Then rate mixed emotions only if both contributing basic emotions are rated 2 or higher and are explicitly reflected in the assistant’s wording. Avoid over-assigning positive emotions like Joy, Trust, Gratitude/Love/Caring, Hope/Optimism or Curiosity unless clearly expressed in the assistant’s wording, not just implied by supportiveness.",
         "Intent": "What is the assistant’s intent in the most recent response, based on how the assistant responded and the support strategy? Please do not directly mention the support strategy name or the assistant’s response text."
     }

@@ -168,7 +168,7 @@ Then run to assess G-Eval,:
 
   `python g_eval.py --read_file test_response_200.jsonl --api_key OPENAI_API_KEY  --model_type MODEL_TYPE`
 
-Using the following prompt:
+Using the following G-Eval prompt:
 <p align="center"> <img src='G-Eval.png' width='1000'> </p>
 
 

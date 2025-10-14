@@ -30,6 +30,7 @@ To construct the MENTOS dataset from ESConv, run the following after downloading
   `python create_mental_state.py --api_key OPENAI_API_KEY --model_type gpt-4o-2024-11-20`
 
 **Mental State Extraction Prompt Components**
+
 For each target mental state, the MENTOS dataset is constructed using the following components within the mental state extraction prompt:
 
 (1) Dialogue history,

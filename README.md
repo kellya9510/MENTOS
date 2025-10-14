@@ -321,7 +321,8 @@ All assistant responses were generated using <img src="https://latex.codecogs.co
 Evaluate with G-Eval
 After post-processing the response outputs, ensure your file (e.g., test_response_200.jsonl) follows this format:
 
-  `{
+  ```
+{
     "data_idx": "DialogueIdx_TurnIdx",
     "response": {
       "baseline": "...",
@@ -332,7 +333,8 @@ After post-processing the response outputs, ensure your file (e.g., test_respons
       "sibyl": "..."
     },
     "conversation": [ ... ]
-  }`
+  }
+```
 
 Then run:
 

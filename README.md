@@ -15,6 +15,9 @@ Accordingly, the MENTOS dataset is distributed under the same license and terms:
 For more information, see `LICENSE-ESConv`.  
 All derived material in this repository is subject to the same non-commercial restriction.
 
+<img src="https://latex.codecogs.com/svg.latex?\text{MENTOS}_{\text{Llama3.1}}" />
+
+
 ### Ethical Considerations
 
 MENTOS contains no personally identifiable information (PII).  

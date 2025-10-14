@@ -348,6 +348,6 @@ Using the following prompt:
 ### Case Study
 We demonstrate the effectiveness of the MENTOS-trained model through a representative ESC example, where the client expresses financial stress caused by COVID-19, a loss of self-confidence, and explicitly seeks experience-based encouragement from the assistant.
 
-<p align="center"> <img src='Case_Study.png' width='1000'> </p>
+<p align="center"> <img src='Case_Study.png' width='1400'> </p>
 
 

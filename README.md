@@ -143,7 +143,34 @@ For each target mental state, the response generator produces responses using th
 
 ## Evaluate Generated Responses
 
+To use automatic evaluation metrics,
+
   `python evaluate_metrics.py --data_dir Meta-Llama-3.1-8B-Instruct/model/Full_FT/All --check_point BestCheckPoint --is_response true`
+
+After post-processing the response outputs, ensure your file (e.g., test_response_200.jsonl) follows this format:
+
+  ```
+{
+    "data_idx": "DialogueIdx_TurnIdx",
+    "response": {
+      "baseline": "...",
+      "all": "...",
+      "dialect": "...",
+      "comet": "...",
+      "doctor": "...",
+      "sibyl": "..."
+    },
+    "conversation": [ ... ]
+  }
+```
+
+Then run to assess G-Eval,:
+
+  `python g_eval.py --read_file test_response_200.jsonl --api_key OPENAI_API_KEY  --model_type MODEL_TYPE`
+
+Using the following prompt:
+<p align="center"> <img src='G-Eval.png' width='1000'> </p>
+
 
 ## Results of Automatic Evaluation Metrics
 
@@ -316,31 +343,6 @@ All assistant responses were generated using <img src="https://latex.codecogs.co
   </tbody>
 </table>
 
-
-## G-Eval Results
-After post-processing the response outputs, ensure your file (e.g., test_response_200.jsonl) follows this format:
-
-  ```
-{
-    "data_idx": "DialogueIdx_TurnIdx",
-    "response": {
-      "baseline": "...",
-      "all": "...",
-      "dialect": "...",
-      "comet": "...",
-      "doctor": "...",
-      "sibyl": "..."
-    },
-    "conversation": [ ... ]
-  }
-```
-
-Then run:
-
-  `python g_eval.py --read_file test_response_200.jsonl --api_key OPENAI_API_KEY  --model_type MODEL_TYPE`
-
-Using the following prompt:
-<p align="center"> <img src='G-Eval.png' width='1000'> </p>
 
 ## Case Study
 We demonstrate the effectiveness of the MENTOS-trained model through a representative ESC example, where the client expresses financial stress caused by COVID-19, a loss of self-confidence, and explicitly seeks experience-based encouragement from the assistant.

@@ -29,10 +29,22 @@ To construct the MENTOS dataset from ESConv, run the following after downloading
 
   `python create_mental_state.py --api_key OPENAI_API_KEY --model_type gpt-4o-2024-11-20`
 
-**Prompt Design**
+**Mental State Extraction Prompt Components**
+For each target mental state, the MENTOS dataset is constructed using the following components within the mental state extraction prompt:
 
-The MENTOS dataset is constructed using the following prompt:
-<img src='Mental_State_Extraction_Prompt_GPT4o.png' width='1000'>
+(1) Dialogue history,
+
+(2) Assistant response, including the supportive strategy description (strategy_info in `create_mental_state.py`).
+
+(3) Assistant Mental State Component
+
+(4) Question Component (mental_state_question_dict  in `create_mental_state.py`)
+
+(5) Constraint Component
+
+These components together guide the model in generating structured annotations for each mental state (Belief, Emotion, Intent).
+
+<p align="center"> <img src='Mental_State_Extraction_Prompt_GPT4o.png' width='1000'> </p>
 
 The dataset is built based on a turn-level annotation schema.
 Each dialogue contains multiple turns, and for every turn (t), an independent data sample is created.
@@ -45,20 +57,6 @@ Each data sample consists of:
 (3) The corresponding three mental state annotations (Belief, Emotion, and Intent).
 
 Thus, a single dialogue yields as many data samples as there are turns.
-
-**Annotation Input Structure**
-
-For each target mental state, the following components are used as GPT-4o input:
-
-(1) Dialogue history,
-
-(2) Assistant response, including the supportive strategy description (strategy_info in `create_mental_state.py`).
-
-(3) Assistant Mental State Component
-
-(4) Question Component (mental_state_question_dict)
-
-(5) Constraint Component
 
 An example MENTOS dataset sample is shown below:
 
@@ -82,7 +80,7 @@ An example MENTOS dataset sample is shown below:
 
 ### Evaluate the MENTOS quality
 
-To assess the quality of MENTOS annotations, we conducted a human evaluation on 100 randomly sampled dialogues. Four annotators independently rated each assistant utterance across three mental state categories—**Belief**, **Emotion**, and **Intent**—using four evaluation criteria per category, each on a 1–3 scale. To measure inter-annotator reliability, we report Gwet’s AC1, which is robust against prevalence and marginal distribution biases. Across all categories and criteria, AC1 values ranged from 0.6 to 0.8, indicating substantial agreement among annotators.
+To assess the quality of MENTOS annotations, we conducted a human evaluation on 100 randomly sampled dialogues. Four annotators independently rated each assistant utterance across three mental state types (**Belief**, **Emotion**, and **Intent**) using four evaluation criteria per category, each on a 1–3 scale. To measure inter-annotator reliability, we report Gwet’s AC1, which is robust against prevalence and marginal distribution biases. Across all categories and criteria, AC1 values ranged from 0.6 to 0.8, indicating substantial agreement among annotators.
 
 The evaluation was performed using the following command:
 

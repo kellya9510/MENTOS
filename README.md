@@ -16,8 +16,6 @@ For more information, see `LICENSE-ESConv`.
 All derived material in this repository is subject to the same non-commercial restriction.
 
 ## MENTOS Dataset
----
-
 
 <img src='DATA CONSTRUCTION.png' width='1000'>
 

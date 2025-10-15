@@ -141,7 +141,7 @@ For each target mental state, the response generator produces responses using th
 <p align="center"> <img src='Response_Generation_prompt.png' width='1000'> </p>
 
 Following the input format of commonsense knowledge in [Sibyl: Empowering Empathetic Dialogue Generation in Large Language Models via Sensible and Visionary Commonsense Inference](https://aclanthology.org/2025.coling-main.10/) (Wang et al., COLING 2025), we also reconstructed the Emotion outputs from the MENTOS-trained model, along with those from other reasoning models, into full sentences to provide the response generator with clearer and more consistent knowledge information.
-Accordingly, nonzero mixed emotions were also converted into single, sentence-level expressions aligned with the Belief and Intent formats. Scores of 1, 2, and 3 were replaced with "slight," "clear," and "strong," respectively, so an Emotion output could be represented as : \textit{In response to the client’s last utterance, the assistant expresses slight sentimentality, clear caring and hope.}
+Accordingly, nonzero mixed emotions were also converted into single, sentence-level expressions aligned with the Belief and Intent formats. Scores of 1, 2, and 3 were replaced with "slight," "clear," and "strong," respectively, so an Emotion output could be represented as : *In response to the client’s last utterance, the assistant expresses slight sentimentality, clear caring and hope.*
 
 
 ## Evaluate Generated Responses

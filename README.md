@@ -27,7 +27,7 @@ A commonsense reasoning model trained on MENTOS predicts these mental states as 
 
 To construct the MENTOS dataset from ESConv, run the following command after downloading the ESConv dataset:
 
-  `python create_mental_state.py --api_key OPENAI_API_KEY --model_type MODEL_TYPE`
+  `python create_mental_state.py --api_key OPENAI_API_KEY --model_type gpt-4o-2024-11-20`
 
 **Mental State Extraction Prompt Components**
 
@@ -140,6 +140,9 @@ For each target mental state, the response generator produces responses using th
 
 <p align="center"> <img src='Response_Generation_prompt.png' width='1000'> </p>
 
+Following the input format of commonsense knowledge in [Sibyl: Empowering Empathetic Dialogue Generation in Large Language Models via Sensible and Visionary Commonsense Inference](https://aclanthology.org/2025.coling-main.10/) (Wang et al., COLING 2025), we also reconstructed the Emotion outputs from the MENTOS-trained model, along with those from other reasoning models, into full sentences to provide the response generator with clearer and more consistent knowledge information.
+Accordingly, nonzero mixed emotions were also converted into single, sentence-level expressions aligned with the Belief and Intent formats. Scores of 1, 2, and 3 were replaced with "slight," "clear," and "strong," respectively, so an Emotion output could be represented as : \textit{In response to the client’s last utterance, the assistant expresses slight sentimentality, clear caring and hope.}
+
 
 ## Evaluate Generated Responses
 
@@ -170,183 +173,10 @@ After post-processing the response outputs, ensure your file (e.g., test_respons
 
 Then run:
 
-  `python g_eval.py --read_file test_response_200.jsonl --api_key OPENAI_API_KEY  --model_type MODEL_TYPE`
+  `python g_eval.py --read_file test_response_200.jsonl --api_key OPENAI_API_KEY  --model_type gpt-4o-mini-2024-07-18`
 
 Using the following prompt:
 <p align="center"> <img src='G-Eval.png' width='1000'> </p>
-
-
-## Results of Automatic Evaluation Metrics
-
-All assistant responses were generated using <img src="https://latex.codecogs.com/svg.latex?\text{Generator}_{\text{Llama2}}" />. Bold indicates the best performance.
-
-<table>
-  <thead>
-    <tr>
-      <th rowspan="2">Model</th>
-      <th colspan="6">ESConv</th>
-      <th colspan="6">ExTES</th>
-    </tr>
-    <tr>
-      <th>B-4</th><th>MET</th><th>Dist-3</th><th>C_W</th><th>C_S</th><th>Greedy</th>
-      <th>B-4</th><th>MET</th><th>Dist-3</th><th>C_W</th><th>C_S</th><th>Greedy</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Llama2</td>
-      <td>0.404</td><td>8.378</td><td>30.086</td><td>88.584</td><td>27.377</td><td>69.874</td>
-      <td>2.052</td><td>10.476</td><td>16.232</td><td>93.856</td><td>48.396</td><td>74.564</td>
-    </tr>
-    <tr>
-      <td>+COMET</td>
-      <td>0.513</td><td>8.432</td><td>37.777</td><td>88.653</td><td>28.390</td><td>69.946</td>
-      <td>2.368</td><td>10.951</td><td>19.799</td><td>94.206</td><td>49.751</td><td>75.353</td>
-    </tr>
-    <tr>
-      <td>+DIALeCT</td>
-      <td><b>0.571</b></td><td>8.643</td><td>46.210</td><td>88.888</td><td>30.516</td><td>70.459</td>
-      <td>2.353</td><td>10.863</td><td>22.845</td><td>94.006</td><td>50.247</td><td>75.375</td>
-    </tr>
-    <tr>
-      <td>+DOCTOR</td>
-      <td>0.525</td><td>8.329</td><td>41.253</td><td>88.174</td><td>27.330</td><td>69.909</td>
-      <td>2.216</td><td>10.524</td><td>23.107</td><td>93.618</td><td>46.909</td><td>75.010</td>
-    </tr>
-    <tr>
-      <td>+<img src="https://latex.codecogs.com/svg.latex?\text{Sibyl}_{\text{Llama3.1}}" /></td>
-      <td>0.448</td><td>8.165</td><td>48.380</td><td>87.832</td><td>29.189</td><td>69.124</td>
-      <td>2.419</td><td>11.002</td><td><b>23.201</b></td><td>93.977</td><td>51.089</td><td>75.091</td>
-    </tr>
-    <tr>
-      <td>+<img src="https://latex.codecogs.com/svg.latex?\text{Sibyl}_{\text{Llama2}}" /></td>
-      <td>0.568</td><td>8.333</td><td><b>50.374</b></td><td>88.103</td><td>29.979</td><td>69.430</td>
-      <td>2.322</td><td>11.016</td><td>22.950</td><td>94.053</td><td>50.246</td><td>75.059</td>
-    </tr>
-    <tr>
-      <td>+<img src="https://latex.codecogs.com/svg.latex?\text{MENTOS}_{\text{Llama3.1}}" /></td>
-      <td>0.489</td><td><b>9.167</b></td><td>46.461</td><td>89.264</td><td><b>31.053</b></td><td>70.763</td>
-      <td>2.875</td><td>12.208</td><td>22.599</td><td>94.664</td><td>52.418</td><td>76.107</td>
-    </tr>
-    <tr>
-      <td>+<img src="https://latex.codecogs.com/svg.latex?\text{MENTOS}_{\text{Llama2}}" /></td>
-      <td>0.511</td><td>9.138</td><td>46.338</td><td><b>89.362</b></td><td>30.758</td><td><b>70.906</b></td>
-      <td>2.955</td><td>12.225</td><td>21.789</td><td><b>94.761</b></td><td><b>53.014</b></td><td>76.254</td>
-    </tr>
-    <tr>
-      <td>+<img src="https://latex.codecogs.com/svg.latex?\text{MENTOS}_{\text{Qwen3}}" /></td>
-      <td>0.432</td><td>8.991</td><td>45.665</td><td>89.223</td><td>30.792</td><td>70.686</td>
-      <td><b>2.958</b></td><td><b>12.231</b></td><td>21.739</td><td>94.684</td><td>52.846</td><td><b>76.259</b></td>
-    </tr>
-  </tbody>
-</table>
-
-All assistant responses were generated using <img src="https://latex.codecogs.com/svg.latex?\text{Generator}_{\text{Qwen3}}" />. Bold indicates the best performance.
-<table>
-  <thead>
-    <tr>
-      <th rowspan="2">Model</th>
-      <th colspan="6">ESConv</th>
-      <th colspan="6">ExTES</th>
-    </tr>
-    <tr>
-      <th>B-4</th><th>MET</th><th>Dist-3</th><th>C_W</th><th>C_S</th><th>Greedy</th>
-      <th>B-4</th><th>MET</th><th>Dist-3</th><th>C_W</th><th>C_S</th><th>Greedy</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Qwen3</td>
-      <td>    0.222  </td><td>   8.285  </td><td>   40.274  </td><td>   89.091  </td><td>   26.986  </td><td>   70.007  </td><td>   2.076  </td><td>   11.666  </td><td>   19.435  </td><td>   94.095  </td><td>   46.566  </td><td>   75.270  </td>
-    </tr>
-    <tr>
-      <td>+COMET</td>
-      <td>    0.359  </td><td>   8.297  </td><td>   39.418  </td><td>   89.332  </td><td>   27.052  </td><td>   70.667  </td><td>   1.975  </td><td>   11.509  </td><td>   18.334  </td><td>   94.485  </td><td>   45.730  </td><td>   75.594  </td>
-    </tr>
-    <tr>
-      <td>+DIALeCT</td>
-      <td> <b>0.482</b></td><td>   7.546  </td><td><b>55.222</b></td><td>   87.110  </td><td>   27.167  </td><td>   68.241  </td><td>   1.457  </td><td>   10.179  </td><td><b>25.451</b></td><td>   92.658  </td><td>   43.010  </td><td>   73.627  </td>
-    </tr>
-    <tr>
-      <td>+DOCTOR</td>
-      <td>    0.326  </td><td>   7.162  </td><td>   50.544  </td><td>   85.967  </td><td>   23.315  </td><td>   66.928  </td><td>   1.559  </td><td>   10.144  </td><td>   23.748  </td><td>   92.897  </td><td>   42.552  </td><td>   73.402  </td>
-    </tr>
-    <tr>
-      <td>+<img src="https://latex.codecogs.com/svg.latex?\text{Sibyl}_{\text{Llama3.1}}" /></td>
-      <td>    0.394  </td><td>   7.843  </td><td>   52.845  </td><td>   87.422  </td><td>   27.717  </td><td>   68.269  </td><td>   2.136  </td><td>   11.306  </td><td>   24.556  </td><td>   93.780  </td><td>   47.081  </td><td>   74.328  </td>
-    </tr>
-    <tr>
-      <td>+<img src="https://latex.codecogs.com/svg.latex?\text{Sibyl}_{\text{Llama2}}" /></td>
-      <td>    0.302  </td><td>   7.906  </td><td>   52.044  </td><td>   87.447  </td><td>   27.653  </td><td>   68.338  </td><td>   1.851  </td><td>   11.287  </td><td>   24.676  </td><td>   93.804  </td><td>   46.973  </td><td>   74.234  </td>
-    </tr>
-    <tr>
-      <td>+<img src="https://latex.codecogs.com/svg.latex?\text{MENTOS}_{\text{Llama3.1}}" /></td>
-      <td>    0.233  </td><td>   9.037  </td><td>   46.391  </td><td><b>89.585</b></td><td>   29.516  </td><td><b>70.827</b></td><td>   2.052  </td><td>   13.141  </td><td>   21.582  </td><td>   94.835  </td><td><b>50.221</b></td><td><b>76.110</b></td>
-    </tr>
-    <tr>
-      <td>+<img src="https://latex.codecogs.com/svg.latex?\text{MENTOS}_{\text{Llama2}}" /></td>
-      <td>    0.239  </td><td><b>9.059</b></td><td>   47.346  </td><td>   89.394  </td><td><b>29.681</b></td><td>   70.664  </td><td>   2.192  </td><td><b>13.195</b></td><td>   21.134  </td><td><b>95.045</b></td><td>   50.154  </td><td>   76.101  </td>
-    </tr>
-    <tr>
-      <td>+<img src="https://latex.codecogs.com/svg.latex?\text{MENTOS}_{\text{Qwen3}}" /></td>
-      <td>    0.247  </td><td>   8.984  </td><td>   47.774  </td><td>   89.390  </td><td>   29.564  </td><td>   70.624  </td><td><b>2.249</b></td><td>   12.918  </td><td>   21.988  </td><td>   94.685  </td><td>   49.442  </td><td>   75.765  </td>
-    </tr>
-  </tbody>
-</table>
-
-
-All assistant responses were generated using <img src="https://latex.codecogs.com/svg.latex?\text{Generator}_{\text{Llama3.2}}" />. Bold indicates the best performance.
-<table>
-  <thead>
-    <tr>
-      <th rowspan="2">Model</th>
-      <th colspan="6">ESConv</th>
-      <th colspan="6">ExTES</th>
-    </tr>
-    <tr>
-      <th>B-4</th><th>MET</th><th>Dist-3</th><th>C_W</th><th>C_S</th><th>Greedy</th>
-      <th>B-4</th><th>MET</th><th>Dist-3</th><th>C_W</th><th>C_S</th><th>Greedy</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Llama3.2</td>
-      <td>    0.355  </td><td>   8.287  </td><td>   40.651  </td><td>   88.789  </td><td>   27.349  </td><td>   70.068  </td><td>   1.581  </td><td>   10.330  </td><td>   23.470  </td><td>   94.148  </td><td>   45.219  </td><td>   74.256  </td>
-    <tr>
-      <td>+COMET</td>
-     <td>    0.368  </td><td>   8.235  </td><td>   41.565  </td><td>   88.736  </td><td>   27.310  </td><td>   70.289  </td><td>   1.800  </td><td>   10.608  </td><td>   23.089  </td><td>   94.148  </td><td>   45.147  </td><td>   74.707  </td>
-    </tr>
-    <tr>
-      <td>+DIALeCT</td>
-      <td>    0.431  </td><td>   8.602  </td><td>   41.406  </td><td>   89.507  </td><td>   28.493  </td><td><b>71.222</b></td><td>   1.845  </td><td>   10.644  </td><td>   22.569  </td><td>   94.452  </td><td>   45.981  </td><td>   75.321  </td>
-    </tr>
-    <tr>
-      <td>+DOCTOR</td>
-      <td>    0.430  </td><td>   8.402  </td><td>   40.353  </td><td>   89.185  </td><td>   27.634  </td><td>   70.618  </td><td>   1.908  </td><td>   10.593  </td><td>   22.426  </td><td>   94.264  </td><td>   45.209  </td><td>   74.927  </td>
-    </tr>
-    <tr>
-      <td>+<img src="https://latex.codecogs.com/svg.latex?\text{Sibyl}_{\text{Llama3.1}}" /></td>
-      <td>    0.394  </td><td>   7.843  </td><td>   52.845  </td><td>   87.422  </td><td>   27.717  </td><td>   68.269  </td><td>   2.136  </td><td>   11.306  </td><td>   24.556  </td><td>   93.780  </td><td>   47.081  </td><td>   74.328  </td>
-    </tr>
-    <tr>
-      <td>+<img src="https://latex.codecogs.com/svg.latex?\text{Sibyl}_{\text{Llama2}}" /></td>
-      <td>    0.454  </td><td>   8.606  </td><td>   42.547  </td><td>   89.463  </td><td>   28.873  </td><td>   71.187  </td><td>   1.851  </td><td>   11.287  </td><td><b>24.676</b></td><td>   93.804  </td><td>   46.973  </td><td>   74.234  </td>
-    </tr>
-    <tr>
-      <td>+<img src="https://latex.codecogs.com/svg.latex?\text{MENTOS}_{\text{Llama3.1}}" /></td>
-      <td> <b>0.457</b></td><td>   8.576  </td><td>   44.011  </td><td>   89.563  </td><td><b>29.614</b></td><td>   70.985  </td><td>   2.414  </td><td>   11.346  </td><td>   22.711  </td><td>   94.616  </td><td>   47.619  </td><td>   75.526  </td>
-    </tr>
-    <tr>
-      <td>+<img src="https://latex.codecogs.com/svg.latex?\text{MENTOS}_{\text{Llama2}}" /></td>
-      <td>    0.366  </td><td><b>8.609</b></td><td><b>44.711</b></td><td><b>89.658</b></td><td>   29.332  </td><td>   71.167  </td><td><b>2.418</b></td><td><b>11.384</b></td><td>   22.110  </td><td><b>94.623</b></td><td><b>47.874</b></td><td><b>75.528</b></td>
-    </tr>
-    <tr>
-      <td>+<img src="https://latex.codecogs.com/svg.latex?\text{MENTOS}_{\text{Qwen3}}" /></td>
-      <td>    0.352  </td><td>   8.587  </td><td>   44.885  </td><td>   89.360  </td><td>   28.966  </td><td>   70.895  </td><td>   2.160  </td><td>   11.254  </td><td>   22.917  </td><td>   94.555  </td><td>   47.707  </td><td>   75.364  </td>
-    </tr>
-  </tbody>
-</table>
-
 
 ## Case Study
 We demonstrate the effectiveness of the MENTOS-trained model through a representative ESC example, where the client expresses financial stress caused by COVID-19, a loss of self-confidence, and explicitly seeks experience-based encouragement from the assistant.

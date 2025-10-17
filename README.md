@@ -33,15 +33,15 @@ To construct the MENTOS dataset from ESConv, run the following command after dow
 
 For each target mental state, the MENTOS dataset is constructed using the following components within the mental state extraction prompt:
 
-(1) Dialogue history,
+(1) **Dialogue history up to the t-th client utterance**
 
-(2) Assistant response, including the supportive strategy description (strategy_info in `create_mental_state.py`).
+(2) **Assistant response at the t-th turn**, including the supportive strategy description (strategy_info in `create_mental_state.py`).
 
-(3) Assistant Mental State Component
+(3) **Assistant Mental State Component**
 
-(4) Question Component (mental_state_question_dict  in `create_mental_state.py`)
+(4) **Question Component** (mental_state_question_dict  in `create_mental_state.py`)
 
-(5) Constraint Component
+(5) **Constraint Component**
 
 <p align="center"> <img src='Mental_State_Extraction_Prompt_GPT4o.png' width='1000'> </p>
 
@@ -87,7 +87,7 @@ An example **MENTOS dataset sample** for a 2-turn dialogue is shown below:
 
 ### Evaluate the MENTOS quality
 
-To assess the quality of MENTOS annotations, we conducted a human evaluation on 100 randomly sampled dialogues. Four annotators independently rated each assistant utterance across three mental state types (**Belief**, **Emotion**, and **Intent**) using four evaluation criteria per category, each on a 1–3 scale. To measure inter-annotator reliability, we report Gwet’s AC1, which is robust against prevalence and marginal distribution biases. Across all categories and criteria, AC1 values ranged from 0.6 to 0.8, indicating substantial agreement among annotators.
+To assess the quality of MENTOS annotations, we conducted a human evaluation on 100 randomly sampled dialogues, corresponding to 1,032 data samples. Four annotators independently rated each assistant utterance across three mental state types (**Belief**, **Emotion**, and **Intent**) using four evaluation criteria per category, each on a 1–3 scale. To measure inter-annotator reliability, we use Gwet’s AC1. Across all categories and criteria, Gwet’s AC1 values ranged from 0.6 to 0.8, indicating substantial agreement among annotators.
 
 The evaluation was performed using the following command:
 
@@ -103,13 +103,13 @@ To fine-tune a model using the training split of MENTOS:
 
 For each target mental state, the MENTOS-trained model is fine-tuned using the following components within the prompt:
 
-(1) Dialogue history
+(1) **Dialogue history**
 
-(2) Assistant Mental State Component
+(2) **Assistant Mental State Component**
 
-(3) Question Component
+(3) **Question Component**
 
-(4) Constraint Component
+(4) **Constraint Component**
 
 <p align="center"> <img src='SFT_prompt.png' width='1000'> </p>
 

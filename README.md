@@ -183,16 +183,16 @@ We demonstrate the effectiveness of the MENTOS-trained model through a represent
 
 <p align="center"> <img src='Case_Study.png' width='1000'> </p>
 
-In the w/o Knowledge setting, only the dialogue history is provided to <img src="https://latex.codecogs.com/svg.latex?\text{Generator}_{\text{Llama2}}" />, without any external commonsense knowledge.
+In the **w/o Knowledge setting**, only the dialogue history is provided to <img src="https://latex.codecogs.com/svg.latex?\text{Generator}_{\text{Llama2}}" />, without any external commonsense knowledge.
 As a result, the generated response fails to directly address the client’s request regarding the assistant’s personal experience.
 
-When using COMET, which relies solely on the last client utterance, the model misclassifies the user’s state (“Thanks. I appreciate that”) and simplifies the complex emotion as merely happy, overlooking the broader context of emotional vulnerability.
+When using **COMET**, which relies solely on the last client utterance, the model misclassifies the user’s state (“Thanks. I appreciate that”) and simplifies the complex emotion as merely happy, overlooking the broader context of emotional vulnerability.
 
-When using DOCTOR, the inferred knowledge contains vague elements such as the term “project”, and emotional cues from the client are omitted during multi-hop reasoning.
+When using **DOCTOR**, the inferred knowledge contains vague elements such as the term “project”, and emotional cues from the client are omitted during multi-hop reasoning.
 The generated commonsense primarily focuses on the client (Spike) seeking help, while the xIntent type emphasizes networking rather than emotional support.
 Consequently, <img src="https://latex.codecogs.com/svg.latex?\text{Generator}_{\text{Llama2}}" /> with DOCTOR fails to provide meaningful guidance for generating empathetic or problem-solving–oriented responses.
 
-When using DIALeCT, the inferred knowledge (e.g., SubEv, Prere, Motiv) more accurately reflects the dialogue history.
+When using **DIALeCT**, the inferred knowledge (e.g., SubEv, Prere, Motiv) more accurately reflects the dialogue history.
 However, in the final turn, the Cause type is reversed: instead of recognizing that the client asks the assistant for strategies to regain self-confidence, it incorrectly describes the assistant as the one asking.
 This role inversion causes inconsistency between Cause and other knowledge types.
 

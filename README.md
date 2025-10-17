@@ -196,7 +196,7 @@ When using **DIALeCT**, the inferred knowledge (e.g., SubEv, Prere, Motiv) more 
 However, in the final turn, the Cause type is reversed: instead of recognizing that the client asks the assistant for strategies to regain self-confidence, it incorrectly describes the assistant as the one asking.
 This role inversion causes inconsistency between Cause and other knowledge types.
 
-When using <img src="https://latex.codecogs.com/svg.latex?\text{Sibyl}_{\text{Llama3.1}}" />, the predicted Intent type is inconsistent with the inferred Cause, often expressing the opposite meaning. This appears to stem from Sibyl’s independent generation process, where each knowledge type is modeled separately without causal dependency.
+When using <img src="https://latex.codecogs.com/svg.latex?\textbf{Sibyl}_{\textbf{Llama3.1}}" />, the predicted Intent type is inconsistent with the inferred Cause, often expressing the opposite meaning. This appears to stem from Sibyl’s independent generation process, where each knowledge type is modeled separately without causal dependency.
 
 In contrast, the proposed <img src="https://latex.codecogs.com/svg.latex?\text{MENTOS}_{\text{Llama3.1}}" /> extracts the assistant’s mental states across multi-turn dialogues in a causally coherent manner. Each mental state (Belief, Emotion, Intent) is generated with sequential dependency, as reflected in the color-coded links in the table, resulting in more consistent state interpretations and contextually appropriate responses.
 Furthermore, G-Eval results support this finding, showing that responses generated with <img src="https://latex.codecogs.com/svg.latex?\text{MENTOS}_{\text{Llama3.1}}" /> are more supportive than those from other models.

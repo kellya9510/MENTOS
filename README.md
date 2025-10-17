@@ -17,7 +17,7 @@ All derived material in this repository is subject to the same non-commercial re
 
 ## MENTOS Dataset
 
-<img src='DATA CONSTRUCTION.png' width='1000'>
+<img src='DataContructionProcess.png' width='1000'>
 
 We introduce **MENTOS**, a dataset that provides turn-level annotations of the assistant’s mental states (**Belief**, **Emotion**, **Desire**, and **Intent**), organized in a causal structure reflecting psychological principles.
 This design integrates psychological principles of Theory of Mind (ToM) into commonsense reasoning.

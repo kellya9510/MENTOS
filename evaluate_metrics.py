@@ -68,7 +68,7 @@ def run_ttest(all_scores_model, all_scores_baseline, alpha=0.01):
         baseline_scores = all_scores_baseline[metric]
 
         if len(model_scores) != len(baseline_scores):
-            print(f"⚠️ Skipping {metric} due to unequal lengths.")
+            print(f"Skipping {metric} due to unequal lengths.")
             continue
 
         t_stat, p_value = ttest_rel(model_scores, baseline_scores)
@@ -283,6 +283,6 @@ if __name__ == "__main__":
                 combined_metrics = {**combined_metrics, **emotion_metrics}
             output[k] = combined_metrics
             
-            print("📊 Overall Metrics:")
+            print("Overall Metrics:")
             for metric, score in combined_metrics.items():
                 print(f"{metric}: {score:.4f}")

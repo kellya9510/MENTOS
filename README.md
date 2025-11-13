@@ -181,7 +181,7 @@ Using the following prompt:
 ## Case Study
 We demonstrate the effectiveness of the MENTOS-trained model through a representative ESC example, where the client expresses financial stress caused by COVID-19, a loss of self-confidence, and explicitly seeks experience-based encouragement from the assistant.
 
-<p align="center"> <img src='Case_Study.png ' width='1000'> </p>
+<p align="center"> <img src='Case_Study.png' width='1000'> </p>
 
 In the **w/o Knowledge setting**, only the dialogue history is provided to <img src="https://latex.codecogs.com/svg.latex?\text{Generator}_{\text{Llama2}}" />, without any external commonsense knowledge.
 As a result, the generated response fails to directly address the client’s request regarding the assistant’s personal experience.

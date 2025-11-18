@@ -14,6 +14,7 @@ Accordingly, the MENTOS dataset is distributed under the same license and terms:
 
 For more information, see `LICENSE-ESConv`.  
 All derived material in this repository is subject to the same non-commercial restriction.
+The MENTOS dataset will be made publicly available after the paper is accepted.
 
 ## MENTOS Dataset
 
